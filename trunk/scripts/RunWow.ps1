@@ -89,4 +89,5 @@ $pids
 $pidStr = join-string $pids ','
 
 # ISSUE: Encrypt password and store in registry / config
-.\Wow.ahk $pidStr 'w0wisd00m'
+$pwd = ''
+.\Wow.ahk $pidStr $pwd
