@@ -5,8 +5,8 @@
 ## Version: 0.3
 ## X-Category: Miscellaneous, Multiboxing
 ## SavedVariables: MultiboxRosterDB
-## OptionalDeps: Ace3, CallbackHandler-1.0, AceGUI-3.0
-## X-Embeds: Ace3, CallbackHandler-1.0, AceGUI-3.0
+## OptionalDeps: Ace3, LibRpc-0.3
+## X-Embeds: Ace3, LibRpc-0.3
 
 LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
