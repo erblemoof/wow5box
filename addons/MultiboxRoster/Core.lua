@@ -1,7 +1,5 @@
 local MultiboxRoster = LibStub("AceAddon-3.0"):NewAddon("MultiboxRoster", "AceBucket-3.0", "AceConsole-3.0", "AceEvent-3.0")
 
-local lower = string.lower
-
 function MultiboxRoster:OnInitialize()
     self:InitOptions()
     
@@ -11,12 +9,22 @@ end
 function MultiboxRoster:OnEnable()
     self.rosterChangeEvents = { "RAID_ROSTER_UPDATE", "PARTY_MEMBERS_CHANGED" }
     self:RegisterBucketEvent(self.rosterChangeEvents, 0.2, "ScanActiveRoster")
-    -- RegisterTrustProvider(self)
+
+    local libRpc = LibStub("LibRpc-0.3", true)
+    if libRpc then
+        libRpc:RegisterTrustProvider(self)
+    else
+        self:Print("LibRpc not installed")
+    end
 end
 
 function MultiboxRoster:OnDisable()
     self:UnregisterBucket(self.rosterChangeEvents)
-    -- UnregisterTrustProvider(self)
+
+    local libRpc = LibStub("LibRpc-0.3", true)
+    if libRpc then
+        libRpc:UnregisterTrustProvider(self)
+    end
 end
 
 -----------------------------------------------------------------------
