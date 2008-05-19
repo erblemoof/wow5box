@@ -55,6 +55,8 @@ local MultiboxRoster = LibStub("AceAddon-3.0"):GetAddon("MultiboxRoster")
 local worldToons= { "Iaggo", "Katator", "Kitator", "Ketator", "Kutator", "Akishâ", "Xoot" }
 local worldMobs = { "Hogger", "Edwin VanCleef" }
 local partyToons = { "Katator", "Kitator" }
+local raidToons = { "Katator", "Kitator", "Kutator", "Akishâ"  }
+local inParty, inRaid
 
 local function UnitInList(unit, list)
     for k in pairs(list) do
@@ -75,8 +77,32 @@ function UnitExists(unit)
     return UnitIsPlayer(unit) or UnitIsEnemy(unit)
 end
 
+function UnitName(unit)
+    local i = string.match(unit, "^party(%d+)$")
+    if i then
+        return partyToons[tonumber(i)]
+    end
+    return unit
+end
+
+function UnitInParty()
+    return inParty
+end
+
+function UnitInRaid()
+    return inRaid
+end
+
 function GetNumPartyMembers()
     return #partyToons
+end
+
+function GetNumRaidMembers()
+    return #raidToons
+end
+
+function GetRaidRosterInfo(i)
+    return raidToons[i]
 end
 
 -----------------------------------------------------------------------
@@ -89,6 +115,8 @@ MultiboxRosterTests = {
 
 function MultiboxRosterTests:setUp()
     MultiboxRoster:Clear()
+    inParty = true
+    inRaid = false
 end
 
 function MultiboxRosterTests:tearDown()
