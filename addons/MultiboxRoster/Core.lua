@@ -78,8 +78,8 @@ end
 -- Active roster
 -----------------------------------------------------------------------
 
--- TODO: Track who from roster is in party
 -- TODO: Roster sharing via RPC (w/ option to control)
+-- TODO: unitid extensions: "roster", "shaman1", etc.
 function MultiboxRoster:ScanActiveRoster()
     -- scan the party/raid for multibox chars
 	local newActiveRoster = {}
@@ -129,4 +129,5 @@ end
 -- Trust provider API
 -----------------------------------------------------------------------
 
-MultiboxRoster.IsTrusted = MultiboxRoster.IncludesCharacter
+MultiboxRoster.IsTrustedPlayer = MultiboxRoster.IncludesCharacter
+MultiboxRoster.IsTrustedApi = MultiboxRoster.IncludesCharacter
