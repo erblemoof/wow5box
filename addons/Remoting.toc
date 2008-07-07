@@ -1,0 +1,23 @@
+## Interface: 20400
+## Title: Lib: Remoting
+## Notes: Ace3 libraries for remote procedure calls, events and function hooks
+## Author: Chorizotarian
+## Version: 0.3
+## X-Category: Miscellaneous, Multiboxing
+## SavedVariables: RemotingDB
+## RequiredDeps: MultiboxRoster
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+
+LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libs\AceBucket-3.0\AceBucket-3.0.xml
+Libs\AceComm-3.0\AceComm-3.0.xml
+Libs\AceEvent-3.0\AceEvent-3.0.xml
+Libs\AceHook-3.0\AceHook-3.0.xml
+Libs\AceSerializer-3.0\AceSerializer-3.0.xml
+
+LibRpc-0.3\LibRpc-0.3.xml
+RemoteCallbackHandler-0.3\RemoteCallbackHandler-0.3.xml
+LibRemoteEvent-0.3\LibRemoteEvent-0.3.xml
+Remoting.lua
