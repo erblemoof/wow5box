@@ -44,7 +44,7 @@
 param
 (
     [string[]] $path = $(throw 'Must specify one or more destination paths'),
-    [string] $sourcePath = "$env:ProgramFiles\World of Warcraft",
+    [string] $sourcePath = "${env:ProgramFiles(x86)}\World of Warcraft",
     [switch] $force
 )
 
