@@ -67,6 +67,23 @@ MacroSequence.sequences = {
 --      3 = target main, 4 = follow)
 -------------------------------------------------------------------
 
+	SetOffensiveTarget = { [[
+/click [dead][noexists][noharm] BongosActionButton61
+/startattack [harm]
+	]] },
+
+	SetHealingTarget = { [[
+/click BongosActionButton61 RightButton
+	]] },
+
+	TargetMain = { [[
+/click BongosActionButton61 Button3
+	]] },
+
+	FollowMain = { [[
+/click BongosActionButton61 Button4
+	]] },
+
 	AutoFocus = { [[
 /clearfocus
 /promote [exists,nodead] party2; party3; party4; party5
