@@ -1,0 +1,14 @@
+MACRO 16777217 "Attack" Ability_Warrior_Charge
+/startattack
+/castsequence reset=10 Holy Shield,,,,,,,,,,,,,,,,,,,
+END
+MACRO 16777219 "HookTest" Ability_PoisonSting
+/script rpc = LibStub("LibRpc-0.2")
+/script function dbgPrint(...) SendChatMessage(table.concat({...}, ",")) end
+/script rpc:RemoteHook("Katator", "TotemTimers_Warning", dbgPrint) 
+END
+MACRO 16777218 "HS" INV_Misc_QuestionMark
+#show Holy Shield
+#showtooltip Holy Shield
+/castsequence reset=10 Holy Shield,,,,,,,,,,,,,,,,,,,
+END

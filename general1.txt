@@ -1,0 +1,64 @@
+MACRO 8 "BB" Ability_Creature_Poison_05
+/click BigButton
+END
+MACRO 20 "Bug" Ability_Mount_GyrocoptorElite
+/script local function f(info) message(table.concat(info.rval, " ")) end; LibStub("LibRpc-0.2"):RemoteCall("Iaggo", f, "UnitArmor", "player")
+END
+MACRO 5 "HL" INV_Misc_QuestionMark
+#show Holy Light
+/click HolyLight
+END
+MACRO 3 "Invite" Spell_Magic_LesserInvisibilty
+/click Invite
+END
+MACRO 15 "Judge" INV_Misc_QuestionMark
+#showtooltip
+#show [modifier:ctrl] Seal of Light; Seal of Wisdom
+/stopmacro [noexists][dead][noharm]
+/startattack
+/cast Judgement
+/stopmacro [dead]
+/cast [modifier:ctrl] Seal of Light; Seal of Wisdom
+END
+MACRO 10 "Katator" Spell_Nature_BloodLust
+/click [button:1] AssistKatator
+/click [button:2] AssistKatator RightButton
+/click [button:3] AssistKatator MiddleButton
+/click [button:4] AssistKatator Button4
+END
+MACRO 11 "Ketator" Spell_Nature_BloodLust
+/click [button:1] AssistKetator
+/click [button:2] AssistKetator RightButton
+/click [button:3] AssistKetator MiddleButton
+/click [button:4] AssistKetator Button4
+END
+MACRO 12 "Kitator" Spell_Nature_BloodLust
+/click [button:1] AssistKitator
+/click [button:2] AssistKitator RightButton
+/click [button:3] AssistKitator MiddleButton
+/click [button:4] AssistKitator Button4
+END
+MACRO 13 "Kutator" Spell_Nature_BloodLust
+/click [button:1] AssistKutator
+/click [button:2] AssistKutator RightButton
+/click [button:3] AssistKutator MiddleButton
+/click [button:4] AssistKutator Button4
+END
+MACRO 21 "LOD" Ability_Creature_Disease_05
+/click [button:1] LodLow
+/click [button:2] LodMedium
+/click [button:3] LodHigh
+END
+MACRO 14 "RD" INV_Misc_QuestionMark
+#show Righteous Defense
+#showtooltip Righteous Defense
+/cast [help][target=targettarget,help] Righteous Defense
+END
+MACRO 2 "SoR" INV_Misc_QuestionMark
+#showtooltip
+#show Seal of Righteousness
+/stopmacro [noexists][dead][noharm]
+/startattack
+/cast Judgement
+/cast [nodead] Seal of Righteousness
+END
