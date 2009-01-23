@@ -1,0 +1,3 @@
+MACRO 16777217 "TT Cast" INV_Misc_QuestionMark
+/castsequence reset=combat/60  Sentry Totem, Tremor Totem, Disease Cleansing Totem, Searing Totem
+END
