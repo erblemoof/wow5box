@@ -23,7 +23,7 @@ MacroSequence.sequences = {
 	
 	BigButton = { [[
 /click [nocombat] SmartBuff_KeyButton
-/click BongosActionButton61 Button4
+/click FollowMain
 	]] },
 	
 	LodLow = { [[
@@ -68,20 +68,20 @@ MacroSequence.sequences = {
 -------------------------------------------------------------------
 
 	SetOffensiveTarget = { [[
-/click [dead][noexists][noharm] BongosActionButton61
+/click [dead][noexists][noharm] MultiBarBottomLeftButton1
 /startattack [harm]
 	]] },
 
 	SetHealingTarget = { [[
-/click BongosActionButton61 RightButton
+/click MultiBarBottomLeftButton1 RightButton
 	]] },
 
 	TargetMain = { [[
-/click BongosActionButton61 Button3
+/click MultiBarBottomLeftButton1 Button3
 	]] },
 
 	FollowMain = { [[
-/click BongosActionButton61 Button4
+/click MultiBarBottomLeftButton1 Button4
 	]] },
 
 	AutoFocus = { [[
@@ -154,7 +154,7 @@ MacroSequence.sequences = {
 	]] },
 
 	HolyLight = { [[
-/click BongosActionButton61 RightButton
+/click SetHealingTarget
 /cast Holy Light
 	]] },
 
@@ -164,35 +164,30 @@ MacroSequence.sequences = {
 
 --/target Dark Iron Land Mine
 	LightningBolt = { [[
-/click [dead][noexists][noharm] BongosActionButton61
-/startattack [harm]
+/click SetOffensiveTarget
 /cast [modifier:ctrl] Lightning Bolt(Rank 1); Lightning Bolt
 	]] },
 	
 	ChainLightning = { [[
-/click [dead][noexists][noharm] BongosActionButton61
-/startattack [harm]
+/click SetOffensiveTarget
 /cast Chain Lightning
 	]] },
 	
 	EarthShock = { [[
 /stopcasting
-/click [dead][noexists][noharm] BongosActionButton61
-/startattack [harm]
+/click SetOffensiveTarget
 /cast Earth Shock
 	]] },
 
 	FlameShock = { [[
 /stopcasting
-/click [dead][noexists][noharm] BongosActionButton61
-/startattack [harm]
+/click SetOffensiveTarget
 /cast Flame Shock
 	]] },
 	
 	FrostShock = { [[
 /stopcasting
-/click [dead][noexists][noharm] BongosActionButton61
-/startattack [harm]
+/click SetOffensiveTarget
 /cast Frost Shock
 	]] },
 	
@@ -217,17 +212,17 @@ MacroSequence.sequences = {
 	},
 
 	HealingWave = { [[
-/click BongosActionButton61 RightButton
+/click SetHealingTarget
 /cast [dead] Ancestral Spirit; Healing Wave
 	]] },
 	
 	LesserHealingWave = { [[
-/click BongosActionButton61 RightButton
+/click SetHealingTarget
 /cast Lesser Healing Wave
 	]] },
 	
 	ChainHeal = { [[
-/click BongosActionButton61 RightButton
+/click SetHealingTarget
 /cast Chain Heal
 	]] },
 	
@@ -276,7 +271,7 @@ MacroSequence.sequences = {
 -------------------------------------------------------------------
 
 	GiftOfTheNaaru = { [[
-/click BongosActionButton61 RightButton
+/click SetHealingTarget
 /cast Gift of the Naaru
 	]] }
 
@@ -287,4 +282,4 @@ MacroSequence.sequences = {
 -------------------------------------------------------------------
 
 --SetBindingClick("CTRL-I", "Invite")
-SetBindingClick("F", "BongosActionButton61")
+--SetBindingClick("F", "BongosActionButton61")
