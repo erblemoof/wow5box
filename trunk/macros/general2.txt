@@ -1,26 +1,23 @@
-MACRO 3 "Accept" Spell_Shadow_Possession
+MACRO 2 "Accept" Spell_Shadow_Possession
 /click Accept
 END
-MACRO 2 "BB" Spell_Magic_PolymorphChicken
+MACRO 1 "BB" Ability_Creature_Poison_05
 /click BigButton
-END
-MACRO 18 "CH" INV_Misc_QuestionMark
-#show Chain Heal
-/click ChainHeal
-END
-MACRO 17 "CL" INV_Misc_QuestionMark
-#show Chain Lightning
-/click ChainLightning
-END
-MACRO 6 "HW" INV_Misc_QuestionMark
-#show Healing Wave
-/click HealingWave
 END
 MACRO 9 "Iaggo" Spell_Holy_EmpowerChampion
 /click [button:1] AssistIaggo
 /click [button:2] AssistIaggo RightButton
 /click [button:3] AssistIaggo MiddleButton
 /click [button:4] AssistIaggo Button4
+END
+MACRO 3 "Invite" Spell_Magic_LesserInvisibilty
+/click Invite
+END
+MACRO 10 "Katator" Spell_Nature_BloodLust
+/click [button:1] AssistKatator
+/click [button:2] AssistKatator RightButton
+/click [button:3] AssistKatator MiddleButton
+/click [button:4] AssistKatator Button4
 END
 MACRO 11 "Ketator" Spell_Nature_BloodLust
 /click [button:1] AssistKetator
@@ -40,32 +37,8 @@ MACRO 13 "Kutator" Spell_Nature_BloodLust
 /click [button:3] AssistKutator MiddleButton
 /click [button:4] AssistKutator Button4
 END
-MACRO 4 "LB" INV_Misc_QuestionMark
-#show Lightning Bolt
-/click LightningBolt
-END
-MACRO 14 "LHW" INV_Misc_QuestionMark
-#show [modifier:ctrl] Gift of the Naaru; Lesser Healing Wave
-/click [modifier:ctrl] GiftOfTheNaaru; LesserHealingWave
-END
-MACRO 19 "LOD" Ability_Creature_Disease_05
+MACRO 21 "LOD" Ability_Creature_Disease_05
 /click [button:1] LodLow
 /click [button:2] LodMedium
 /click [button:3] LodHigh
-END
-MACRO 16 "Nova" INV_Misc_QuestionMark
-#show Fire Nova Totem
-/castsequence reset=15 Fire Nova Totem, Magma Totem
-END
-MACRO 5 "SeqSh" INV_Misc_QuestionMark
-#show [modifier:ctrl] Frost Shock; Earth Shock
-/click [modifier:ctrl] ShockSequence1 RightButton; ShockSequence1
-END
-MACRO 7 "SyncSh" INV_Misc_QuestionMark
-#show [modifier:ctrl] Frost Shock; Flame Shock
-/click [modifier:ctrl] FrostShock; FlameShock
-END
-MACRO 8 "Totem" INV_Misc_QuestionMark
-#show Stoneskin Totem
-/click Totem1
 END

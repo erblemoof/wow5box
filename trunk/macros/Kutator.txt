@@ -1,0 +1,39 @@
+MACRO 100 "CH" INV_Misc_QuestionMark
+#show Chain Heal
+/click ChainHeal
+END
+MACRO 101 "CL" INV_Misc_QuestionMark
+#show Chain Lightning
+/click ChainLightning
+END
+MACRO 102 "HW" INV_Misc_QuestionMark
+#show Healing Wave
+/click HealingWave
+END
+MACRO 103 "LB" INV_Misc_QuestionMark
+#show Lightning Bolt
+/click LightningBolt
+END
+MACRO 104 "LHW" INV_Misc_QuestionMark
+#show [modifier:ctrl] Gift of the Naaru; Lesser Healing Wave
+/click [modifier:ctrl] GiftOfTheNaaru; LesserHealingWave
+END
+MACRO 105 "Nova" INV_Misc_QuestionMark
+#show Fire Nova Totem
+/castsequence reset=15 Fire Nova Totem, Magma Totem
+END
+MACRO 106 "SeqSh" INV_Misc_QuestionMark
+#show [modifier:ctrl] Frost Shock; Earth Shock
+/click [modifier:ctrl] ShockSequence1 RightButton; ShockSequence1
+END
+MACRO 107 "SyncSh" INV_Misc_QuestionMark
+#show [modifier:ctrl] Frost Shock; Flame Shock
+/click [modifier:ctrl] FrostShock; FlameShock
+END
+MACRO 108 "Totem" INV_Misc_QuestionMark
+#show Stoneskin Totem
+/click Totem4
+END
+MACRO 200 "TT Cast" INV_Misc_QuestionMark
+/castsequence reset=combat/60  Sentry Totem, Tremor Totem, Disease Cleansing Totem, Searing Totem
+END
