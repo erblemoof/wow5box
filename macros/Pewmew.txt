@@ -1,0 +1,32 @@
+MACRO 16777321 "HT" INV_Misc_QuestionMark
+#show Healing Touch
+/click HealingTouch
+END
+MACRO 16777316 "Pawfoo" Spell_Nature_BloodLust
+/click [button:1] AssistPawfoo
+/click [button:2] AssistPawfoo RightButton
+/click [button:3] AssistPawfoo MiddleButton
+/click [button:4] AssistPawfoo Button4
+END
+MACRO 16777317 "Pewmew" Spell_Nature_BloodLust
+/click [button:1] AssistPewmew
+/click [button:2] AssistPewmew RightButton
+/click [button:3] AssistPewmew MiddleButton
+/click [button:4] AssistPewmew Button4
+END
+MACRO 16777318 "Pieforu" Spell_Nature_BloodLust
+/click [button:1] AssistPieforu
+/click [button:2] AssistPieforu RightButton
+/click [button:3] AssistPieforu MiddleButton
+/click [button:4] AssistPieforu Button4
+END
+MACRO 16777319 "Pumu" Spell_Nature_BloodLust
+/click [button:1] AssistPumu
+/click [button:2] AssistPumu RightButton
+/click [button:3] AssistPumu MiddleButton
+/click [button:4] AssistPumu Button4
+END
+MACRO 16777320 "Wrath" INV_Misc_QuestionMark
+#show Wrath
+/click Wrath
+END
