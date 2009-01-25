@@ -136,6 +136,42 @@ MacroSequence.sequences = {
 /follow Kutator
 	]] },
 
+	AssistPawfoo = { [[
+/assist [button:1] Pawfoo
+/stopmacro [button:1]
+/target [button:2][button:3] Pawfoo
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Pawfoo
+	]] },
+
+	AssistPewmew = { [[
+/assist [button:1] Pewmew
+/stopmacro [button:1]
+/target [button:2][button:3] Pewmew
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Pewmew
+	]] },
+
+	AssistPieforu = { [[
+/assist [button:1] Pieforu
+/stopmacro [button:1]
+/target [button:2][button:3] Pieforu
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Pieforu
+	]] },
+
+	AssistPumu = { [[
+/assist [button:1] Pumu
+/stopmacro [button:1]
+/target [button:2][button:3] Pumu
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Pumu
+	]] },
+
 -------------------------------------------------------------------
 -- Paladin
 -------------------------------------------------------------------
@@ -158,6 +194,21 @@ MacroSequence.sequences = {
 /cast Holy Light
 	]] },
 
+-------------------------------------------------------------------
+-- Druid
+-------------------------------------------------------------------
+
+--/target Dark Iron Land Mine
+	Wrath = { [[
+/click SetOffensiveTarget
+/cast [modifier:ctrl] Wrath(Rank 1); Wrath
+	]] },
+    
+	HealingWave = { [[
+/click SetHealingTarget
+/cast Healing Touch
+	]] },
+	
 -------------------------------------------------------------------
 -- Shaman
 -------------------------------------------------------------------

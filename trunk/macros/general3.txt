@@ -1,17 +1,17 @@
-MACRO 1 "BB" Ability_Creature_Poison_05
-/click BigButton
-END
 MACRO 2 "Accept" Spell_Shadow_Possession
 /click Accept
 END
-MACRO 3 "Invite" Spell_Magic_LesserInvisibilty
-/click Invite
+MACRO 1 "BB" Ability_Creature_Poison_05
+/click BigButton
 END
 MACRO 9 "Iaggo" Spell_Holy_EmpowerChampion
 /click [button:1] AssistIaggo
 /click [button:2] AssistIaggo RightButton
 /click [button:3] AssistIaggo MiddleButton
 /click [button:4] AssistIaggo Button4
+END
+MACRO 3 "Invite" Spell_Magic_LesserInvisibilty
+/click Invite
 END
 MACRO 10 "Katator" Spell_Nature_BloodLust
 /click [button:1] AssistKatator
