@@ -11,8 +11,7 @@
 #--------------------------------------------------------------------------------------------------
 
 param (
-    [int[]] $ids = 1..5,        # list of WoW folder IDs to run
-    [switch] $promptPassword    # prompt for password
+    [int[]] $ids = 1..5         # list of WoW folder IDs to run
 )
 
 function Join-String([string[]] $strArray, [string] $sep = ' ')
@@ -99,28 +98,6 @@ foreach ($id in $ids) {
 $pids = @($ids | foreach { Get-WowPid $_ })
 $pids
 $pidStr = join-string $pids ','
-
-# Get the WoW password from the registry or prompt for it
-$regkey = 'HKCU:\Software\Chorizotarian\Multiboxing\'
-Ensure-Path $regkey
-
-$encStr = (get-itemproperty $regkey).WowPassword
-if ($promptPassword -or ($secStr -eq $null))
-{
-    # Read the password securely and write an encrypted version to the registry
-    $secStr = read-host 'Enter WoW password' -asSecureString
-    $encStr = ConvertFrom-SecureString $secStr
-    set-itemproperty -path $regkey -name 'WowPassword' -value $encStr
-}
-
-# Covert the password to a regular string
-$secStr = ConvertTo-SecureString $encStr
-if ($secStr -is [Security.SecureString])
-{
-    $ptr = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secStr)
-    $pwd = [Runtime.InteropServices.Marshal]::PtrToStringUni($ptr)
-    if ($ptr -is [IntPtr]) { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr) }
-}
 
 # Pass data to AHK
 .\Wow.ahk $pidStr $pwd
