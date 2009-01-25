@@ -205,24 +205,27 @@ Return
 
 #x::ForceAllRaw("/exit")
 
-XButton1::ForceAll("{F down}{F up}") ; force assist
+XButton1::ForceAll("{Numpad0 down}{Numpad0 up}") ; force assist
 XButton2::ForceAll("{NumpadMult down}{NumpadMult up}") ; follow
 
 ;-------------------------------------
 ; Movement / Formations
 ;-------------------------------------
 
-+F10::ForceClones("{W down}")
-+F10 Up::ForceClones("{W up}")
+;XButton1::BeginSpreadLine()
+;XButton1 Up::EndSpreadLine()
 
-+^F10::BeginSpreadLine()
-+^F10 Up::EndSpreadLine()
+{::ForceClones("{W down}")
+{ Up::ForceClones("{W up}")
 
-+F11::ForceClones("{S down}")
-+F11 Up::ForceClones("{S up}")
+^{::BeginSpreadLine()
+^{ Up::EndSpreadLine()
 
-+F12::BeginSpreadBox()
-+F12 Up::EndSpreadBox()
+}::ForceClones("{S down}")
+} Up::ForceClones("{S up}")
+
+|::BeginSpreadBox()
+| Up::EndSpreadBox()
 
 ;-------------------------------------
 ; Unmodified Hotkeys
