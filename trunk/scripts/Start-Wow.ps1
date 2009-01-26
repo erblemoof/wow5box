@@ -3,7 +3,8 @@
 #       RunWow.ps1
 #
 # Description:
-#       Launches WoW and passes list of process IDs to AHK
+#       Launches WoW and passes list of process IDs to AHK. TRICKY: Don't run as admin or Logitech
+#       mouse software won't work.
 #
 # Author:
 #       Chorizotarian
@@ -19,11 +20,27 @@ function Join-String([string[]] $strArray, [string] $sep = ' ')
     if ($strArray -ne $null) { [string]::Join($sep, $strArray) } else { $null }
 }
 
+function Test-Item($item, [int[]] $array = @())
+{
+    @($array | where { $_ -eq $item }).Length -ge 1
+}
+
 # Gets the most recent WoW process ID
 function Get-LastWowPid
 {
-    $p = @(get-process -name wow | sort StartTime -descending)
-    $p[0].Id
+    if ($global:knownWows -eq $null)
+    {
+        $global:knownWows = @()
+    }
+    
+    $newWows = @(get-process |
+        where { $_.Name -eq 'wow' -and -not (test-item $_.Id $global:knownWows) } |
+        foreach { $_.Id })
+    
+    $global:knownWows += $newWows
+    
+    # return the last pid in the updated known list
+    $global:knownWows[-1]
 }
 
 function Set-WowPid([int] $id, [int] $wowPid = (Get-LastWowPid))
@@ -71,7 +88,8 @@ foreach ($id in $ids) {
     else
     {
         "Launching WoW $id ..."
-        &"c:\wow$id\Maximizer.exe"
+        pushd "c:\wow$id"
+        .\Maximizer.exe
         
         # Wait for wow.exe
         $nWow = Get-WowCount
@@ -91,6 +109,8 @@ foreach ($id in $ids) {
             start-sleep -sec 5
         }
         else { throw "`tfailure" }
+        
+        popd
     }
 }
 
