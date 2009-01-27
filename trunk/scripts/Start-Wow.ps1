@@ -106,7 +106,7 @@ foreach ($id in $ids) {
         if ($success) {
             "`tsuccess"
             Set-WowPid $id
-            start-sleep -sec 5
+            start-sleep -sec 2
         }
         else { throw "`tfailure" }
         
