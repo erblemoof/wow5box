@@ -7,6 +7,10 @@ MACRO 16777217 "Invite" Ability_Creature_Cursed_01
 /invite Pieforu
 /invite Pumu
 END
+MACRO 16777322 "MF" INV_Misc_QuestionMark
+#show Moonfire
+/click Moonfire
+END
 MACRO 16777316 "Pawfoo" Spell_Nature_BloodLust
 /click [button:1] AssistPawfoo
 /click [button:2] AssistPawfoo RightButton

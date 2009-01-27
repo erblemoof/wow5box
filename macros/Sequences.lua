@@ -172,6 +172,72 @@ MacroSequence.sequences = {
 /follow Pumu
 	]] },
 
+	AssistXalo = { [[
+/assist [button:1] Xalo
+/stopmacro [button:1]
+/target [button:2][button:3] Xalo
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Xalo
+	]] },
+
+	AssistXiloh = { [[
+/assist [button:1] Xiloh
+/stopmacro [button:1]
+/target [button:2][button:3] Xiloh
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Xiloh
+	]] },
+
+	AssistXulo = { [[
+/assist [button:1] Xulo
+/stopmacro [button:1]
+/target [button:2][button:3] Xulo
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Xulo
+	]] },
+
+-------------------------------------------------------------------
+-- Druid
+-------------------------------------------------------------------
+
+--/target Dark Iron Land Mine
+	Wrath = { [[
+/click SetOffensiveTarget
+/cast [modifier:ctrl] Wrath(Rank 1); Wrath
+	]] },
+    
+	Moonfire = { [[
+/click SetOffensiveTarget
+/cast [modifier:ctrl] Moonfire(Rank 1); Moonfire
+	]] },
+    
+	HealingTouch = { [[
+/click SetHealingTarget
+/cast Healing Touch
+	]] },
+	
+-------------------------------------------------------------------
+-- Mage
+-------------------------------------------------------------------
+
+	Fireball = { [[
+/click SetOffensiveTarget
+/cast Fireball
+	]] },
+    
+	FireBlast = { [[
+/click SetOffensiveTarget
+/cast Fire Blast
+	]] },
+    
+	Frostbolt = { [[
+/click SetOffensiveTarget
+/cast [modifier:ctrl] Frostbolt(Rank 1); Frostbolt
+	]] },
+    
 -------------------------------------------------------------------
 -- Paladin
 -------------------------------------------------------------------
@@ -194,21 +260,6 @@ MacroSequence.sequences = {
 /cast Holy Light
 	]] },
 
--------------------------------------------------------------------
--- Druid
--------------------------------------------------------------------
-
---/target Dark Iron Land Mine
-	Wrath = { [[
-/click SetOffensiveTarget
-/cast [modifier:ctrl] Wrath(Rank 1); Wrath
-	]] },
-    
-	HealingWave = { [[
-/click SetHealingTarget
-/cast Healing Touch
-	]] },
-	
 -------------------------------------------------------------------
 -- Shaman
 -------------------------------------------------------------------
