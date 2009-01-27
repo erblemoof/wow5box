@@ -45,7 +45,8 @@ param
 (
     [string[]] $path = $(throw 'Must specify one or more destination paths'),
     [string] $sourcePath = "${env:ProgramFiles(x86)}\World of Warcraft",
-    [switch] $force
+    [switch] $force,
+    [switch] $repair
 )
 
 # validate input parameters
@@ -131,17 +132,20 @@ foreach ($p in $path)
     
     # Link all of the other binaries except patches, which can be omitted
     get-childitem $sourcePath\* -include *.exe,*.dll -exclude *patch.exe,*-downloader.exe,Launcher.exe |
-    foreach { New-WowLink $_.Name }
+        foreach { New-WowLink $_.Name }
     
-    # Other linkable dirs
-    @( 'Cache', 'Data', 'Interface') | foreach { New-WowLink $_ }
-    
-    # Optional dirs that might not exist
-    @( 'Patches', 'Screenshots' ) | foreach { New-WowLink $_ -createDir }
-    
-    # Copy the WTF directory (settings)
-    $wtf = (join-path $sourcePath WTF)
-    copy-item $wtf WTF -recurse
+    if (-not $repair)
+    {
+        # Other linkable dirs
+        @( 'Cache', 'Data', 'Interface') | foreach { New-WowLink $_ }
+        
+        # Optional dirs that might not exist
+        @( 'Patches', 'Screenshots' ) | foreach { New-WowLink $_ -createDir }
+        
+        # Copy the WTF directory (settings)
+        $wtf = (join-path $sourcePath WTF)
+        copy-item $wtf WTF -recurse
+    }
 
     pop-location
     ++$iPath
