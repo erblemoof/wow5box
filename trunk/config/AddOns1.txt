@@ -1,0 +1,5 @@
+XPerl_TeamSpeak: disabled
+FuBar-compat-1.2: disabled
+IceHUD: disabled
+XPerl_Options: enabled
+!Swatter: disabled
