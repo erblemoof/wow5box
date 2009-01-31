@@ -35,6 +35,14 @@ MACRO 16777319 "Pumu" Spell_Nature_BloodLust
 /click [button:3] AssistPumu MiddleButton
 /click [button:4] AssistPumu Button4
 END
+MACRO 16777417 "Regrowth" INV_Misc_QuestionMark
+#show Regrowth
+/click Regrowth
+END
+MACRO 16777416 "Rejuv" INV_Misc_QuestionMark
+#show Rejuvenation
+/click Rejuvenation
+END
 MACRO 16777320 "Wrath" INV_Misc_QuestionMark
 #show Wrath
 /click Wrath

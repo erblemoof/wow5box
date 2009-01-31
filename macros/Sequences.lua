@@ -63,8 +63,11 @@ MacroSequence.sequences = {
 	]] },
 
 -------------------------------------------------------------------
--- Targeting (buttons: 1 = offensive target, 2 = healing target,
---      3 = target main, 4 = follow)
+-- Targeting:
+--      button 1 = offensive target
+--      button 2 = healing target
+--      button 3 = target main's target
+--      button 4 = follow
 -------------------------------------------------------------------
 
 	SetOffensiveTarget = { [[
@@ -73,6 +76,7 @@ MacroSequence.sequences = {
 	]] },
 
 	SetHealingTarget = { [[
+/stopmacro [exists,help,nodead]
 /click MultiBarBottomLeftButton1 RightButton
 	]] },
 
@@ -217,6 +221,16 @@ MacroSequence.sequences = {
 	HealingTouch = { [[
 /click SetHealingTarget
 /cast Healing Touch
+	]] },
+	
+	Rejuvenation = { [[
+/click SetHealingTarget
+/cast Rejuvenation
+	]] },
+	
+	Regrowth = { [[
+/click SetHealingTarget
+/cast Regrowth
 	]] },
 	
 -------------------------------------------------------------------

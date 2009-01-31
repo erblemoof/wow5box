@@ -1,3 +1,6 @@
+MACRO 2 "Accept" Spell_Shadow_Possession
+/click Accept
+END
 MACRO 8 "BB" Ability_Creature_Poison_05
 /click BigButton
 END
