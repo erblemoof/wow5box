@@ -58,3 +58,15 @@ XPerl_Target: disabled
 XPerl_TargetTarget: disabled
 XPerl_TeamSpeak: disabled
 XPerl_Tutorial: disabled
+DoubleWide: disabled
+SatrinaBuffFrame: disabled
+SBFOptions: disabled
+!Swatter: disabled
+TipTac: disabled
+LightHeaded: disabled
+LightHeaded_Data_A: disabled
+LightHeaded_Data_B: disabled
+LightHeaded_Data_C: disabled
+LightHeaded_Data_D: disabled
+LightHeaded_Data_E: disabled
+MacroSequence: enabled
