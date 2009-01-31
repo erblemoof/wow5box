@@ -3,12 +3,12 @@
 #       RunWow.ps1
 #
 # Description:
-#       Launches WoW and passes list of process IDs to AHK. TRICKY: Don't run as admin or Logitech
-#       mouse software won't work.
+#       Launches WoW and passes list of process IDs to AHK
+#
+#       TRICKY: Don't run as admin or Logitech mouse software won't work.
 #
 # Author:
 #       Chorizotarian
-#
 #--------------------------------------------------------------------------------------------------
 
 param (
