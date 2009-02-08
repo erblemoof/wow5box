@@ -1,6 +1,6 @@
 #--------------------------------------------------------------------------------------------------
 # Module:
-#       RunWow.ps1
+#       Start-Wow.ps1
 #
 # Description:
 #       Launches WoW and passes list of process IDs to AHK
@@ -12,112 +12,125 @@
 #--------------------------------------------------------------------------------------------------
 
 param (
-    [int[]] $ids = 1..5         # list of WoW folder IDs to run
+    $teamId = 0,
+    [string] $configPath = 'WowConfig.xml',
+    [switch] $reset
 )
 
-function Join-String([string[]] $strArray, [string] $sep = ' ')
-{
-    if ($strArray -ne $null) { [string]::Join($sep, $strArray) } else { $null }
-}
+$configContent = get-content $configPath
+$config = [xml] [string]::join("`n", $configContent)
 
-function Test-Item($item, [int[]] $array = @())
-{
-    @($array | where { $_ -eq $item }).Length -ge 1
-}
+# Get the game command info
+$progName = $config.WowConfig.StartCommand.fileName
+$progArgs = $config.WowConfig.StartCommand.args
 
-# Gets the most recent WoW process ID
-function Get-LastWowPid
-{
-    if ($global:knownWows -eq $null)
-    {
-        $global:knownWows = @()
-    }
-    
-    $newWows = @(get-process |
-        where { $_.Name -eq 'wow' -and -not (test-item $_.Id $global:knownWows) } |
-        foreach { $_.Id })
-    
-    $global:knownWows += $newWows
-    
-    # return the last pid in the updated known list
-    $global:knownWows[-1]
-}
+# Get the game instance configs
+$gameInstances = @($config.WowConfig.GameInstances.Game)
+$password = Get-WowPassword
 
-function Set-WowPid([int] $id, [int] $wowPid = (Get-LastWowPid))
+# Get the team
+$teams = @($config.WowConfig.Teams.Team)
+if ($teamId -is [int])
 {
-    set-variable "wow$id" $wowPid -scope global
+    $team = $teams[$teamId]
 }
-
-function Get-WowPid([int] $id)
+else
 {
-    $v = @(get-variable -include "wow$id" -scope global)
-    if ($v.Length -eq 1)
-    {
-        $wowPid = $v[0].Value
-        $p = @(get-process | where { $_.Id -eq $wowPid })
-        if (($p.Length -eq 1) -and ($p[0].Name -eq 'wow')) { $wowPid }
-            else { clear-variable "wow$id" -scope global }
-    }
+    $team = $teams | where { $_.id.ToLower().StartsWith($teamId) }
 }
+if ($team -eq $null) { throw "Invalid team ID: $teamId" }
 
-function Test-Wow([int] $id)
-{
-    (Get-WowPid $id) -ne $null
-}
+# Create a hashtable for the list of running games, if not already created
+if ($reset -or $global:runningGames -eq $null) { $global:runningGames = @{} }
 
-function Get-WowCount
-{
-    @(get-process | where { $_.Name -eq 'wow'}).Length
-}
+# Win32 constants used below
+$gwlStyle = -16                         # GWL_STYLE
+$wsThickframe = 0x00040000              # WS_THICKFRAME
+$wsCaption = 0x00C00000                 # WS_CAPTION
+$swpFramechanged = 0x0020               # SWP_FRAMECHANGED
+$wmKeydown = 0x0100                     # WM_KEYDOWN
+$wmKeyup = 0x0101                       # WM_KEYUP
+$wmChar = 0x0102                        # WM_CHAR
 
-# Ensure that the path exists, creating it if necessary
-function Ensure-Path($path)
+function Send-String([IntPtr] $hWnd, [string] $s)
 {
-    if (-not (test-path $path))
-    {
-        $parent = (split-path $path)
-        Ensure-Path $parent
-        mkdir $path
+    $s.ToCharArray() | foreach {
+        Send-Message $hWnd $wmKeydown $_ > $null
+        Send-Message $hWnd $wmChar $_ > $null
+        Send-Message $hWnd $wmKeyup $_ > $null
     }
 }
 
-# Launch WoW via Maximizer
-foreach ($id in $ids) {
-    $wowPid = Get-WowPid $id
-    if ($wowPid -ne $null) { "WoW $id = $wowPid" }
-    else
+# Get screen info
+[System.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms') > $null
+$screens = [System.Windows.Forms.Screen]::AllScreens
+
+# Get WoW password
+$password = Get-WowPassword
+
+# Launch game instances
+$i = 0
+$pids = @()
+foreach ($toon in $team.Toon) {
+    $game = $gameInstances[$i++]
+    "Launching $($toon.name) in $($game.id)..."
+   
+    # See if the game instance is already running
+    $process = $global:runningGames[$game.id]
+    if ($process -ne $null)
     {
-        "Launching WoW $id ..."
-        pushd "c:\wow$id"
-        .\Maximizer.exe
-        
-        # Wait for wow.exe
-        $nWow = Get-WowCount
-        $maxWait = [DateTime]::Now + [TimeSpan]::FromSeconds(5)
-        $success = $false
-        do
+        if ($process.HasExited) {
+            "`tRemoving exited process $($process.Id) from the running list for $($game.id)"
+            $global:runningGames[$game.id] = $null
+            $process = $null
+        }
+        else 
         {
-            $success = (Get-WowCount -gt $nWow)     # new wow has been launched
-            start-sleep -mil 100
+            "`tAlready running in process $($process.Id)"
         }
-        while (-not $success -and ([DateTime]::Now -le $maxWait))
-        
-        # wait for maximizer to move the window
-        if ($success) {
-            "`tsuccess"
-            Set-WowPid $id
-            start-sleep -sec 2
-        }
-        else { throw "`tfailure" }
-        
-        popd
     }
+
+    # Otherwise launch a new process
+    if ($process -eq $null)
+    {
+        $process = new-object System.Diagnostics.Process
+        $process.StartInfo.Arguments = $progArgs
+        $process.StartInfo.CreateNoWindow = $true
+        $process.StartInfo.FileName = join-path $game.folder $progName
+        $process.StartInfo.UseShellExecute = $false
+        $process.StartInfo.WorkingDirectory = $game.folder
+        if (-not $process.Start()) { throw "`tProcess failed to start" }
+
+        $global:runningGames[$game.id] = $process
+        "`tStarted in process $($process.Id)"
+
+        # Set window style
+        if (-not $process.WaitForInputIdle(10000)) { "`tProcess.WaitForInputIdle timed out" }
+        $hWnd = $process.MainWindowHandle
+        [IntPtr] $oldStyle = Get-WindowLongPtr $hWnd $gwlStyle
+        [IntPtr] $stylesToRemove = -bnot ($wsThickframe -bor $wsCaption)
+        [IntPtr] $newStyle = $oldStyle -band $stylesToRemove
+        Set-WindowLongPtr $hWnd $gwlStyle $newStyle > $null
+        
+        # Set window position
+        $screen = $screens[$game.monitor]
+        $b = $screen.Bounds
+        $x = $b.left + $game.left
+        $y = $b.top + $game.top
+        Set-WindowPos $hWnd $x $y $game.width $game.height $swpFramechanged > $null
+    
+        # Log in
+        Send-String $hWnd $toon.account
+        Send-String $hWnd "`t"
+        Send-String $hWnd $password
+        Send-String $hWnd "`n`r"
+    }
+    
+    # Save process ID for AHK
+    $pids += $process.Id
 }
 
-# Make a comma-separated list of WoW process IDs
-$pids = @($ids | foreach { Get-WowPid $_ })
+# Pass comma-separated list of WoW process IDs to AHK
 $pids
-$pidStr = join-string $pids ','
-
-# Pass data to AHK
+$pidStr = $pids -join ','
 .\Wow.ahk $pidStr $pwd

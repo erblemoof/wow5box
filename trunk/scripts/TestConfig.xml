@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WowConfig>
+  <StartCommand fileName="notepad.exe" args="" />
+  <GameInstances>
+    <Game id="np1" folder="c:\windows\system32" monitor="2" left="200" top="0" width="800" height="500" />
+    <Game id="np2" folder="c:\windows\system32" monitor="2" left="200" top="500" width="800" height="500" />
+  </GameInstances>
+  <Teams>
+    <Team id="test">
+      <Toon name="Toon1" account="Acct1" />
+      <Toon name="Toon2" account="Acct2" />
+    </Team>
+  </Teams>
+</WowConfig>
