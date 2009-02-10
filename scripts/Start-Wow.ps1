@@ -88,9 +88,12 @@ foreach ($toon in $team.Toon) {
         {
             "`tAlready running in process $($process.Id)"
         }
+        
+        # Only login if the team has changed
+        $login = ($global:lastTeamId -ne $team.id)
     }
 
-    # Otherwise launch a new process
+    # Otherwise launch in a new process
     if ($process -eq $null)
     {
         $process = new-object System.Diagnostics.Process
@@ -118,8 +121,15 @@ foreach ($toon in $team.Toon) {
         $x = $b.left + $game.left
         $y = $b.top + $game.top
         Set-WindowPos $hWnd $x $y $game.width $game.height $swpFramechanged > $null
+        
+        # Always login
+        $login = $true
+    }
     
-        # Log in
+    # Log in
+    if ($login)
+    {
+        $hWnd = $process.MainWindowHandle
         Send-String $hWnd $toon.account
         Send-String $hWnd "`t"
         Send-String $hWnd $password
@@ -134,3 +144,6 @@ foreach ($toon in $team.Toon) {
 $pids
 $pidStr = $pids -join ','
 .\Wow.ahk $pidStr $pwd
+
+# Save the team so we can detect changes on subsequent runs
+$global:lastTeamId = $team.id
