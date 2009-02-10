@@ -1,17 +1,23 @@
-MACRO 100 "Attack" Ability_Warrior_Charge
+MACRO 16777316 "Attack" Ability_Warrior_Charge
 /startattack
 /castsequence reset=10 Holy Shield,,,,,,,,,,,,,,,,,,,
 END
-MACRO 101 "HS" INV_Misc_QuestionMark
+MACRO 16777318 "HL" INV_Misc_QuestionMark
+#show Holy Light
+/click HolyLight
+END
+MACRO 16777317 "HS" INV_Misc_QuestionMark
 #show Holy Shield
 #showtooltip Holy Shield
 /castsequence reset=10 Holy Shield,,,,,,,,,,,,,,,,,,,
 END
-MACRO 102 "HL" INV_Misc_QuestionMark
-#show Holy Light
-/click HolyLight
+MACRO 16777322 "Invite" Ability_Paladin_BeaconofLight
+/invite Katator
+/invite Ketator
+/invite Kitator
+/invite Kutator
 END
-MACRO 103 "Judge" INV_Misc_QuestionMark
+MACRO 16777319 "Judge" INV_Misc_QuestionMark
 #showtooltip
 #show [modifier:ctrl] Seal of Light; Seal of Wisdom
 /stopmacro [noexists][dead][noharm]
@@ -20,12 +26,12 @@ MACRO 103 "Judge" INV_Misc_QuestionMark
 /stopmacro [dead]
 /cast [modifier:ctrl] Seal of Light; Seal of Wisdom
 END
-MACRO 104 "RD" INV_Misc_QuestionMark
+MACRO 16777320 "RD" INV_Misc_QuestionMark
 #show Righteous Defense
 #showtooltip Righteous Defense
 /cast [help][target=targettarget,help] Righteous Defense
 END
-MACRO 105 "SoR" INV_Misc_QuestionMark
+MACRO 16777321 "SoR" INV_Misc_QuestionMark
 #showtooltip
 #show Seal of Righteousness
 /stopmacro [noexists][dead][noharm]

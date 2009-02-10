@@ -221,16 +221,19 @@ MacroSequence.sequences = {
 	HealingTouch = { [[
 /click SetHealingTarget
 /cast Healing Touch
+/targetlasttarget
 	]] },
 	
 	Rejuvenation = { [[
 /click SetHealingTarget
 /cast Rejuvenation
+/targetlasttarget
 	]] },
 	
 	Regrowth = { [[
 /click SetHealingTarget
 /cast Regrowth
+/targetlasttarget
 	]] },
 	
 -------------------------------------------------------------------
