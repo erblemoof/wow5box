@@ -70,3 +70,6 @@ LightHeaded_Data_C: disabled
 LightHeaded_Data_D: disabled
 LightHeaded_Data_E: disabled
 MacroSequence: enabled
+Pawn: enabled
+SmartDebuff: disabled
+FuBar_XPerlFu: disabled

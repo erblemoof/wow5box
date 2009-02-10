@@ -67,3 +67,7 @@ LightHeaded_Data_D: disabled
 LightHeaded_Data_E: disabled
 TipTac: disabled
 !Swatter: disabled
+Pawn: enabled
+SatrinaBuffFrame: disabled
+SBFOptions: disabled
+SmartDebuff: disabled
