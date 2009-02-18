@@ -227,6 +227,9 @@ XButton2::ForceAll("{NumpadMult down}{NumpadMult up}") ; follow
 |::BeginSpreadBox()
 | Up::EndSpreadBox()
 
+; all jump
+^MButton::ForceAll("{MButton down}{MButton up}")
+
 ;-------------------------------------
 ; Unmodified Hotkeys
 ;-------------------------------------
@@ -262,6 +265,15 @@ XButton2::ForceAll("{NumpadMult down}{NumpadMult up}") ; follow
 ~F12::SendAll("{F12 down}{F12 up}")
 
 ~F::SendAll("{F down}{F up}")
+
+~*Numpad1::SendAll("{Numpad1 down}{Numpad1 up}")
+~*Numpad2::SendAll("{Numpad2 down}{Numpad2 up}")
+~*Numpad3::SendAll("{Numpad3 down}{Numpad3 up}")
+~*Numpad4::SendAll("{Numpad4 down}{Numpad4 up}")
+~*Numpad5::SendAll("{Numpad5 down}{Numpad5 up}")
+~*Numpad6::SendAll("{Numpad6 down}{Numpad6 up}")
+~*Numpad7::SendAll("{Numpad7 down}{Numpad7 up}")
+~*Numpad8::SendAll("{Numpad8 down}{Numpad8 up}")
 
 ;-------------------------------------
 ; Shift (+) + Hotkey

@@ -21,11 +21,23 @@
       <Toon name="Xiloh" account="JamieEi3" />
       <Toon name="Xulo" account="JamieEi4" />
     </Team>
+    <Team id="mage2">
+      <Toon name="Xalo" account="JamieEi2" />
+      <Toon name="Xiloh" account="JamieEi3" />
+      <Toon name="Xulo" account="JamieEi4" />
+      <Toon name="Skeletoor" account="JamieEi1" />
+    </Team>
     <Team id="druids">
       <Toon name="Pawfoo" account="JamieEi1" />
       <Toon name="Pewmew" account="JamieEi2" />
       <Toon name="Pieforu" account="JamieEi3" />
       <Toon name="Pumu" account="JamieEi4" />
+    </Team>
+    <Team id="rogues">
+      <Toon name="Beada" account="JamieEi1" />
+      <Toon name="Biza" account="JamieEi2" />
+      <Toon name="Blenda" account="JamieEi3" />
+      <Toon name="Byla" account="JamieEi4" />
     </Team>
   </Teams>
 </WowConfig>
