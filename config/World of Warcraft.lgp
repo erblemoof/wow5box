@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles>
+	<profile guid="{843A0097-C30D-4a70-94B0-701F73A862DF}" name="World of Warcraft" revision="3.01" lock="0">
+		<description>
+			
+		</description>
+		<macros>
+			<macro name="-" guid="{DCF50AE2-000A-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="MINUS"/>
+			</macro>
+			<macro name="0" guid="{DCF50AE2-0009-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="0"/>
+			</macro>
+			<macro name="1" guid="{DCF50AE2-0000-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="1"/>
+			</macro>
+			<macro name="2" guid="{DCF50AE2-0001-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="2"/>
+			</macro>
+			<macro name="3" guid="{DCF50AE2-0002-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="3"/>
+			</macro>
+			<macro name="4" guid="{DCF50AE2-0003-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="4"/>
+			</macro>
+			<macro name="5" guid="{DCF50AE2-0004-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="5"/>
+			</macro>
+			<macro name="6" guid="{DCF50AE2-0005-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="6"/>
+			</macro>
+			<macro name="7" guid="{DCF50AE2-0006-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="7"/>
+			</macro>
+			<macro name="8" guid="{DCF50AE2-0007-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="8"/>
+			</macro>
+			<macro name="9" guid="{DCF50AE2-0008-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="9"/>
+			</macro>
+			<macro name="=" guid="{DCF50AE2-000B-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="EQUAL"/>
+			</macro>
+			<macro name="[" guid="{DCF50AE2-000C-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="LBRACKET"/>
+			</macro>
+			<macro name="]" guid="{DCF50AE2-000D-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="RBRACKET"/>
+			</macro>
+			<macro name="Alt" guid="{DCF50AE2-0017-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="LALT"/>
+			</macro>
+			<macro name="Attack" guid="{C6F8D067-C94B-4CA3-99A8-BE2C7F499FE2}" type="multikey">
+				<event type="keydown" keyname="T"/>
+				<event type="keyup" keyname="T"/>
+			</macro>
+			<macro name="Autorun" guid="{E39E7A36-A29C-486c-B442-41E6952ED0B6}" type="multikey">
+				<event type="keydown" keyname="NUMLOCK"/>
+				<event type="keyup" keyname="NUMLOCK"/>
+			</macro>
+			<macro name="Character Info" guid="{1C034156-E9B0-4b89-827B-C68BB4B6AC6B}" type="multikey">
+				<event type="keydown" keyname="C"/>
+				<event type="keyup" keyname="C"/>
+			</macro>
+			<macro name="Ctrl" guid="{DCF50AE2-0016-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="LCTRL"/>
+			</macro>
+			<macro name="Cycle Targets" guid="{720DAC55-0B45-4012-AEE7-D8E329E085AA}" type="multikey">
+				<event type="keydown" keyname="TAB"/>
+				<event type="keyup" keyname="TAB"/>
+			</macro>
+			<macro name="Follow" guid="{44738ABF-ED36-417b-8EE9-3C84A9A52FC8}" type="multikey">
+				<event type="keydown" keyname="SLASH"/>
+				<event type="keyup" keyname="SLASH"/>
+				<event type="keydown" keyname="F"/>
+				<event type="keyup" keyname="F"/>
+				<event type="keydown" keyname="O"/>
+				<event type="keyup" keyname="O"/>
+				<event type="keydown" keyname="L"/>
+				<event type="keyup" keyname="L"/>
+				<event type="keydown" keyname="L"/>
+				<event type="keyup" keyname="L"/>
+				<event type="keydown" keyname="O"/>
+				<event type="keyup" keyname="O"/>
+				<event type="keydown" keyname="W"/>
+				<event type="keyup" keyname="W"/>
+				<event type="keydown" keyname="ENTER"/>
+				<event type="keyup" keyname="ENTER"/>
+			</macro>
+			<macro name="Hot Bar Backward" guid="{A41E3E5D-85DE-422e-BA6A-5332F847B087}" type="multikey">
+				<event type="keydown" keyname="RSHIFT"/>
+				<event type="keydown" keyname="DOWN"/>
+				<event type="keyup" keyname="DOWN"/>
+				<event type="keyup" keyname="RSHIFT"/>
+			</macro>
+			<macro name="Hot Bar Forward" guid="{BB67BF15-C579-4737-BA5E-46A23D13674F}" type="multikey">
+				<event type="keydown" keyname="RSHIFT"/>
+				<event type="keydown" keyname="UP"/>
+				<event type="keyup" keyname="UP"/>
+				<event type="keyup" keyname="RSHIFT"/>
+			</macro>
+			<macro name="Hot Bar Slot -" guid="{F1C38C65-A4EF-4DDB-A8A5-7A7470D4A771}" type="multikey">
+				<event type="keydown" keyname="MINUS"/>
+				<event type="keyup" keyname="MINUS"/>
+			</macro>
+			<macro name="Hot Bar Slot 0" guid="{C087ACB9-091A-4C42-A421-69702CF742AD}" type="multikey">
+				<event type="keydown" keyname="0"/>
+				<event type="keyup" keyname="0"/>
+			</macro>
+			<macro name="Hot Bar Slot 1" guid="{A2B0F4BF-E1F3-4D1C-B22B-778D7D509AD6}" type="multikey">
+				<event type="keydown" keyname="1"/>
+				<event type="keyup" keyname="1"/>
+			</macro>
+			<macro name="Hot Bar Slot 2" guid="{7803E824-6874-4026-8D18-525AE62BEF13}" type="multikey">
+				<event type="keydown" keyname="2"/>
+				<event type="keyup" keyname="2"/>
+			</macro>
+			<macro name="Hot Bar Slot 3" guid="{DE63B7E0-5426-4170-BEDA-5AEBB2E36976}" type="multikey">
+				<event type="keydown" keyname="3"/>
+				<event type="keyup" keyname="3"/>
+			</macro>
+			<macro name="Hot Bar Slot 4" guid="{EB7291A5-2880-4217-A99D-1D3C47846332}" type="multikey">
+				<event type="keydown" keyname="4"/>
+				<event type="keyup" keyname="4"/>
+			</macro>
+			<macro name="Hot Bar Slot 5" guid="{4D299B76-C99C-42B8-A607-029F0A04079D}" type="multikey">
+				<event type="keydown" keyname="5"/>
+				<event type="keyup" keyname="5"/>
+			</macro>
+			<macro name="Hot Bar Slot 6" guid="{62B2238C-AA7F-4C35-BB40-99602FC0CAAA}" type="multikey">
+				<event type="keydown" keyname="6"/>
+				<event type="keyup" keyname="6"/>
+			</macro>
+			<macro name="Hot Bar Slot 7" guid="{A3AC41A6-E8C8-434D-A1F6-3DE41F4DAFDC}" type="multikey">
+				<event type="keydown" keyname="7"/>
+				<event type="keyup" keyname="7"/>
+			</macro>
+			<macro name="Hot Bar Slot 8" guid="{ABC816D5-4470-4FAB-8FDF-C0C93B6FD848}" type="multikey">
+				<event type="keydown" keyname="8"/>
+				<event type="keyup" keyname="8"/>
+			</macro>
+			<macro name="Hot Bar Slot 9" guid="{0D4F9B52-F08D-46F4-84F3-97DEDBF73513}" type="multikey">
+				<event type="keydown" keyname="9"/>
+				<event type="keyup" keyname="9"/>
+			</macro>
+			<macro name="Hot Bar Slot =" guid="{AC232E23-24D6-48F8-9337-83D19927C628}" type="multikey">
+				<event type="keydown" keyname="EQUAL"/>
+				<event type="keyup" keyname="EQUAL"/>
+			</macro>
+			<macro name="Jump" guid="{7D331D06-342E-42AB-8A56-A8CC1B22E28B}" type="multikey">
+				<event type="keydown" keyname="SPACEBAR"/>
+				<event type="keyup" keyname="SPACEBAR"/>
+			</macro>
+			<macro name="Num 1" guid="{DCF50AE2-000E-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="NUM1"/>
+			</macro>
+			<macro name="Num 2" guid="{DCF50AE2-000F-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="NUM2"/>
+			</macro>
+			<macro name="Num 3" guid="{DCF50AE2-0010-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="NUM3"/>
+			</macro>
+			<macro name="Num 4" guid="{DCF50AE2-0011-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="NUM4"/>
+			</macro>
+			<macro name="Num 5" guid="{DCF50AE2-0012-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="NUM5"/>
+			</macro>
+			<macro name="Num 6" guid="{DCF50AE2-0013-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="NUM6"/>
+			</macro>
+			<macro name="Num 7" guid="{DCF50AE2-0014-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="NUM7"/>
+			</macro>
+			<macro name="Num 8" guid="{DCF50AE2-0015-4381-0002-4F0F5A9E9803}" type="singlekey">
+				<event type="key" keyname="NUM8"/>
+			</macro>
+			<macro name="Pet Aggressive" guid="{6A80D7C9-CD42-4f7d-ADBD-A016BB963B6A}" type="multikey">
+				<event type="keydown" keyname="RCTRL"/>
+				<event type="keydown" keyname="8"/>
+				<event type="keyup" keyname="8"/>
+				<event type="keyup" keyname="RCTRL"/>
+			</macro>
+			<macro name="Pet Attack" guid="{EC286E37-B87A-439f-B182-A39ED09A0A5E}" type="multikey">
+				<event type="keydown" keyname="LCTRL"/>
+				<event type="keydown" keyname="1"/>
+				<event type="keyup" keyname="1"/>
+				<event type="keyup" keyname="LCTRL"/>
+			</macro>
+			<macro name="Pet Defensive" guid="{EB857237-3CF1-454d-96BC-1768863A5BF6}" type="multikey">
+				<event type="keydown" keyname="RCTRL"/>
+				<event type="keydown" keyname="9"/>
+				<event type="keyup" keyname="9"/>
+				<event type="keyup" keyname="RCTRL"/>
+			</macro>
+			<macro name="Pet Passive" guid="{6F2AEC13-E4E8-4610-AF81-F2AC89EB5534}" type="multikey">
+				<event type="keydown" keyname="RCTRL"/>
+				<event type="keydown" keyname="0"/>
+				<event type="keyup" keyname="0"/>
+				<event type="keyup" keyname="RCTRL"/>
+			</macro>
+			<macro name="Quest Log" guid="{10A9C169-9DBD-4060-943C-7847EB110FA4}" type="multikey">
+				<event type="keydown" keyname="L"/>
+				<event type="keyup" keyname="L"/>
+			</macro>
+			<macro name="Roll for Loot" guid="{09A56D19-A101-4593-AF93-67537FF6432A}" type="multikey">
+				<event type="keydown" keyname="SLASH"/>
+				<event type="keyup" keyname="SLASH"/>
+				<event type="keydown" keyname="R"/>
+				<event type="keyup" keyname="R"/>
+				<event type="keydown" keyname="A"/>
+				<event type="keyup" keyname="A"/>
+				<event type="keydown" keyname="N"/>
+				<event type="keyup" keyname="N"/>
+				<event type="keydown" keyname="D"/>
+				<event type="keyup" keyname="D"/>
+				<event type="keydown" keyname="O"/>
+				<event type="keyup" keyname="O"/>
+				<event type="keydown" keyname="M"/>
+				<event type="keyup" keyname="M"/>
+				<event type="keydown" keyname="SPACEBAR"/>
+				<event type="keyup" keyname="SPACEBAR"/>
+				<event type="keydown" keyname="1"/>
+				<event type="keyup" keyname="1"/>
+				<event type="keydown" keyname="0"/>
+				<event type="keyup" keyname="0"/>
+				<event type="keydown" keyname="0"/>
+				<event type="keyup" keyname="0"/>
+				<event type="keydown" keyname="ENTER"/>
+				<event type="keyup" keyname="ENTER"/>
+			</macro>
+			<macro name="Sidestep Left" guid="{9EAC1F03-A3D0-48fa-BF3A-9D65182EADD8}" type="multikey">
+				<event type="keydown" keyname="Q"/>
+				<event type="keyup" keyname="Q"/>
+			</macro>
+			<macro name="Sidestep Right" guid="{58847B65-EACC-4dc9-B7F8-B750B72037E8}" type="multikey">
+				<event type="keydown" keyname="E"/>
+				<event type="keyup" keyname="E"/>
+			</macro>
+			<macro name="Social" guid="{45F01BAF-0FE8-44d6-8E50-BA0EC21F78E4}" type="multikey">
+				<event type="keydown" keyname="O"/>
+				<event type="keyup" keyname="O"/>
+			</macro>
+			<macro name="Spellbook and Abilities" guid="{F63ACBCD-864F-4a24-AB5C-B9D9049FFB21}" type="multikey">
+				<event type="keydown" keyname="P"/>
+				<event type="keyup" keyname="P"/>
+			</macro>
+			<macro name="Talents" guid="{132532C6-E05A-4e5c-80AE-A55EC5C46117}" type="multikey">
+				<event type="keydown" keyname="N"/>
+				<event type="keyup" keyname="N"/>
+			</macro>
+			<macro name="Turn Left" guid="{B409D19D-C19B-440e-B204-A65774EA4C1C}" type="multikey">
+				<event type="keydown" keyname="A"/>
+				<event type="keyup" keyname="A"/>
+			</macro>
+			<macro name="Turn Right" guid="{4E264C6C-111A-4fc0-AF71-16B852A73AC7}" type="multikey">
+				<event type="keydown" keyname="D"/>
+				<event type="keyup" keyname="D"/>
+			</macro>
+			<macro name="Walk Backward" guid="{DB0A670A-0F4D-4684-913F-39E71D91635F}" type="multikey">
+				<event type="keydown" keyname="S"/>
+				<event type="keyup" keyname="S"/>
+			</macro>
+			<macro name="Walk Forward" guid="{86A22338-0069-43fb-B48B-5CBB7B18B46A}" type="multikey">
+				<event type="keydown" keyname="W"/>
+				<event type="keyup" keyname="W"/>
+			</macro>
+			<macro name="World Map" guid="{4B2AB245-EDBC-46ae-9E4C-DEB8035772F2}" type="multikey">
+				<event type="keydown" keyname="M"/>
+				<event type="keyup" keyname="M"/>
+			</macro>
+		</macros>
+		<assignments>
+			<assignment gamekey="G26" shiftstate="1" macroguid="{86A22338-0069-43fb-B48B-5CBB7B18B46A}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G28" shiftstate="1" macroguid="{DB0A670A-0F4D-4684-913F-39E71D91635F}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G29" shiftstate="1" macroguid="{9EAC1F03-A3D0-48fa-BF3A-9D65182EADD8}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G27" shiftstate="1" macroguid="{58847B65-EACC-4dc9-B7F8-B750B72037E8}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G25" shiftstate="1" macroguid="{7D331D06-342E-42AB-8A56-A8CC1B22E28B}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G24" shiftstate="1" macroguid="{DCF50AE2-0017-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G23" shiftstate="1" macroguid="{DCF50AE2-0016-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G4" shiftstate="1" macroguid="{DCF50AE2-0003-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G11" shiftstate="1" macroguid="{DCF50AE2-000A-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G10" shiftstate="1" macroguid="{DCF50AE2-0009-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G12" shiftstate="1" macroguid="{DCF50AE2-000B-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G1" shiftstate="1" macroguid="{DCF50AE2-0000-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G2" shiftstate="1" macroguid="{DCF50AE2-0001-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G3" shiftstate="1" macroguid="{DCF50AE2-0002-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G5" shiftstate="1" macroguid="{DCF50AE2-0004-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G6" shiftstate="1" macroguid="{DCF50AE2-0005-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G7" shiftstate="1" macroguid="{DCF50AE2-0006-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G9" shiftstate="1" macroguid="{DCF50AE2-0008-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G13" shiftstate="1" macroguid="{DCF50AE2-000C-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G8" shiftstate="1" macroguid="{DCF50AE2-0007-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G14" shiftstate="1" macroguid="{DCF50AE2-000D-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G15" shiftstate="1" macroguid="{DCF50AE2-000E-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G16" shiftstate="1" macroguid="{DCF50AE2-000F-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G17" shiftstate="1" macroguid="{DCF50AE2-0010-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G18" shiftstate="1" macroguid="{DCF50AE2-0011-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G19" shiftstate="1" macroguid="{DCF50AE2-0012-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G20" shiftstate="1" macroguid="{DCF50AE2-0013-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G21" shiftstate="1" macroguid="{DCF50AE2-0014-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+			<assignment gamekey="G22" shiftstate="1" macroguid="{DCF50AE2-0015-4381-0002-4F0F5A9E9803}" playmode="oneshot" family="lhc"/>
+		</assignments>
+		<target>
+			C:\Program Files (x86)\World of Warcraft\wow.exe
+		</target>
+		<script>
+			function OnEvent(event, arg)
+	OutputLogMessage("event = %s, arg = %s\n", event, arg);
+end
+
+		</script>
+		<signature key="HKEY_LOCAL_MACHINE" subkey="SOFTWARE\Blizzard Entertainment\World of Warcraft" value="InstallPath" executable="wow.exe" name=""/>
+	</profile>
+</profiles>

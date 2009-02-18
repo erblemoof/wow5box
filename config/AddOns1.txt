@@ -1,7 +1,7 @@
 XPerl_TeamSpeak: disabled
 FuBar-compat-1.2: disabled
 IceHUD: disabled
-XPerl_Options: disabled
+XPerl_Options: enabled
 !Swatter: disabled
 FuBarPlugin-2.0: enabled
 SatrinaBuffFrame: enabled
@@ -16,3 +16,8 @@ LightHeaded_Data_C: enabled
 LightHeaded_Data_D: enabled
 LightHeaded_Data_E: enabled
 MacroSequence: enabled
+XPerl_RaidHelper: disabled
+XPerl_RaidAdmin: disabled
+XPerl_RaidPets: disabled
+XPerl_RaidFrames: disabled
+XPerl_Tutorial: disabled
