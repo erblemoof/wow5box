@@ -42,3 +42,15 @@ MACRO 21 "LOD" Ability_Creature_Disease_05
 /click [button:2] LodMedium
 /click [button:3] LodHigh
 END
+MACRO 31 "Focus1" Spell_Holy_Crusade
+/click Focus1
+END
+MACRO 32 "Focus2" Spell_Holy_Crusade
+/click Focus2
+END
+MACRO 33 "Focus3" Spell_Holy_Crusade
+/click Focus3
+END
+MACRO 34 "Focus4" Spell_Holy_Crusade
+/click Focus4
+END

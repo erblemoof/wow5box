@@ -1,0 +1,33 @@
+MACRO 16777316 "Beada" Spell_Nature_BloodLust
+/click [button:1] AssistBeada
+/click [button:2] AssistBeada RightButton
+/click [button:3] AssistBeada MiddleButton
+/click [button:4] AssistBeada Button4
+END
+MACRO 16777317 "Biza" Spell_Nature_BloodLust
+/click [button:1] AssistBiza
+/click [button:2] AssistBiza RightButton
+/click [button:3] AssistBiza MiddleButton
+/click [button:4] AssistBiza Button4
+END
+MACRO 16777318 "Blenda" Spell_Nature_BloodLust
+/click [button:1] AssistBlenda
+/click [button:2] AssistBlenda RightButton
+/click [button:3] AssistBlenda MiddleButton
+/click [button:4] AssistBlenda Button4
+END
+MACRO 16777319 "Byla" Spell_Nature_BloodLust
+/click [button:1] AssistByla
+/click [button:2] AssistByla RightButton
+/click [button:3] AssistByla MiddleButton
+/click [button:4] AssistByla Button4
+END
+MACRO 16777320 "Invite" Ability_Creature_Poison_04
+/invite Biza
+/invite Blenda
+/invite Byla
+END
+MACRO 16777321 "SS" INV_Misc_QuestionMark
+#show Sinister Strike
+/click SinisterStrike
+END
