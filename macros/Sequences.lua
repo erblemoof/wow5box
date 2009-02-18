@@ -88,120 +88,60 @@ MacroSequence.sequences = {
 /click MultiBarBottomLeftButton1 Button4
 	]] },
 
-	AutoFocus = { [[
+    -- Set raid icons to match alt focus
+	Focus0 = {
+		reset = { combat = true, ctrl = true }, [[
+/clearfocus [button:2]
+/focus [button:2] target
+/script SetRaidTarget('target', 1)
+/targetenemy
+        ]], [[
+/script SetRaidTarget('target', 2)
+/targetenemy
+        ]], [[
+/script SetRaidTarget('target', 3)
+/targetenemy
+        ]], [[
+/script SetRaidTarget('target', 4)
+/targetenemy
+        ]]
+    },
+
+	Focus1 = {
+		reset = { combat = true, ctrl = true }, [[
 /clearfocus
-/promote [exists,nodead] party2; party3; party4; party5
-/stopmacro [target=party1,dead]
-/focus party1
-	]] },
+/click SetOffensiveTarget
+/focus target
+        ]], "", "", ""
+    },
 
-	AssistIaggo = { [[
-/assist [button:1] Iaggo
-/stopmacro [button:1]
-/target [button:2][button:3] Iaggo
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Iaggo
-	]] },
+	Focus2 = {
+		reset = { combat = true, ctrl = true },
+        "/clearfocus", [[
+/click SetOffensiveTarget
+/focus target
+        ]], "", ""
+    },
 
-	AssistKatator = { [[
-/assist [button:1] Katator
-/stopmacro [button:1]
-/target [button:2][button:3] Katator
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Katator
-	]] },
+	Focus3 = {
+		reset = { combat = true, ctrl = true },
+        "/clearfocus",
+        "", [[
+/click SetOffensiveTarget
+/clearfocus
+/focus target
+        ]], ""
+    },
 
-	AssistKetator = { [[
-/assist [button:1] Ketator
-/stopmacro [button:1]
-/target [button:2][button:3] Ketator
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Ketator
-	]] },
-
-	AssistKitator = { [[
-/assist [button:1] Kitator
-/stopmacro [button:1]
-/target [button:2][button:3] Kitator
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Kitator
-	]] },
-
-	AssistKutator = { [[
-/assist [button:1] Kutator
-/stopmacro [button:1]
-/target [button:2][button:3] Kutator
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Kutator
-	]] },
-
-	AssistPawfoo = { [[
-/assist [button:1] Pawfoo
-/stopmacro [button:1]
-/target [button:2][button:3] Pawfoo
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Pawfoo
-	]] },
-
-	AssistPewmew = { [[
-/assist [button:1] Pewmew
-/stopmacro [button:1]
-/target [button:2][button:3] Pewmew
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Pewmew
-	]] },
-
-	AssistPieforu = { [[
-/assist [button:1] Pieforu
-/stopmacro [button:1]
-/target [button:2][button:3] Pieforu
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Pieforu
-	]] },
-
-	AssistPumu = { [[
-/assist [button:1] Pumu
-/stopmacro [button:1]
-/target [button:2][button:3] Pumu
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Pumu
-	]] },
-
-	AssistXalo = { [[
-/assist [button:1] Xalo
-/stopmacro [button:1]
-/target [button:2][button:3] Xalo
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Xalo
-	]] },
-
-	AssistXiloh = { [[
-/assist [button:1] Xiloh
-/stopmacro [button:1]
-/target [button:2][button:3] Xiloh
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Xiloh
-	]] },
-
-	AssistXulo = { [[
-/assist [button:1] Xulo
-/stopmacro [button:1]
-/target [button:2][button:3] Xulo
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Xulo
-	]] },
+	Focus4 = {
+		reset = { combat = true, ctrl = true },
+        "/clearfocus",
+        "", "", [[
+/click SetOffensiveTarget
+/clearfocus
+/focus target
+        ]]
+    },
 
 -------------------------------------------------------------------
 -- Druid
@@ -247,12 +187,19 @@ MacroSequence.sequences = {
     
 	FireBlast = { [[
 /click SetOffensiveTarget
+/stopcasting
 /cast Fire Blast
 	]] },
     
 	Frostbolt = { [[
 /click SetOffensiveTarget
 /cast [modifier:ctrl] Frostbolt(Rank 1); Frostbolt
+	]] },
+    
+	Polymorph = { [[
+/stopmacro [target=focus,noexists][target=focus,dead][target=focus,noharm]
+/stopcasting
+/cast [target=focus] Polymorph
 	]] },
     
 -------------------------------------------------------------------
@@ -277,6 +224,15 @@ MacroSequence.sequences = {
 /cast Holy Light
 	]] },
 
+-------------------------------------------------------------------
+-- Rogue
+-------------------------------------------------------------------
+
+	SinisterStrike = { [[
+/click SetOffensiveTarget
+/cast Sinister Strike
+	]] },
+    
 -------------------------------------------------------------------
 -- Shaman
 -------------------------------------------------------------------
@@ -392,6 +348,154 @@ MacroSequence.sequences = {
 	GiftOfTheNaaru = { [[
 /click SetHealingTarget
 /cast Gift of the Naaru
+	]] },
+
+-------------------------------------------------------------------
+-- Leaders
+-------------------------------------------------------------------
+
+	AssistBeada = { [[
+/assist [button:1] Beada
+/stopmacro [button:1]
+/target [button:2][button:3] Beada
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Beada
+	]] },
+
+	AssistBiza = { [[
+/assist [button:1] Biza
+/stopmacro [button:1]
+/target [button:2][button:3] Biza
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Biza
+	]] },
+
+	AssistBlenda = { [[
+/assist [button:1] Blenda
+/stopmacro [button:1]
+/target [button:2][button:3] Blenda
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Blenda
+	]] },
+
+	AssistByla = { [[
+/assist [button:1] Byla
+/stopmacro [button:1]
+/target [button:2][button:3] Byla
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Byla
+	]] },
+
+	AssistIaggo = { [[
+/assist [button:1] Iaggo
+/stopmacro [button:1]
+/target [button:2][button:3] Iaggo
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Iaggo
+	]] },
+
+	AssistKatator = { [[
+/assist [button:1] Katator
+/stopmacro [button:1]
+/target [button:2][button:3] Katator
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Katator
+	]] },
+
+	AssistKetator = { [[
+/assist [button:1] Ketator
+/stopmacro [button:1]
+/target [button:2][button:3] Ketator
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Ketator
+	]] },
+
+	AssistKitator = { [[
+/assist [button:1] Kitator
+/stopmacro [button:1]
+/target [button:2][button:3] Kitator
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Kitator
+	]] },
+
+	AssistKutator = { [[
+/assist [button:1] Kutator
+/stopmacro [button:1]
+/target [button:2][button:3] Kutator
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Kutator
+	]] },
+
+	AssistPawfoo = { [[
+/assist [button:1] Pawfoo
+/stopmacro [button:1]
+/target [button:2][button:3] Pawfoo
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Pawfoo
+	]] },
+
+	AssistPewmew = { [[
+/assist [button:1] Pewmew
+/stopmacro [button:1]
+/target [button:2][button:3] Pewmew
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Pewmew
+	]] },
+
+	AssistPieforu = { [[
+/assist [button:1] Pieforu
+/stopmacro [button:1]
+/target [button:2][button:3] Pieforu
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Pieforu
+	]] },
+
+	AssistPumu = { [[
+/assist [button:1] Pumu
+/stopmacro [button:1]
+/target [button:2][button:3] Pumu
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Pumu
+	]] },
+
+	AssistXalo = { [[
+/assist [button:1] Xalo
+/stopmacro [button:1]
+/target [button:2][button:3] Xalo
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Xalo
+	]] },
+
+	AssistXiloh = { [[
+/assist [button:1] Xiloh
+/stopmacro [button:1]
+/target [button:2][button:3] Xiloh
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Xiloh
+	]] },
+
+	AssistXulo = { [[
+/assist [button:1] Xulo
+/stopmacro [button:1]
+/target [button:2][button:3] Xulo
+/target [target=targettarget,button:2,help,nodead]
+/stopmacro [button:2][button:3]
+/follow Xulo
 	]] }
 
 }

@@ -1,0 +1,42 @@
+MACRO 16777322 "Fireball" INV_Misc_QuestionMark
+#show Fireball
+/click Fireball
+END
+MACRO 16777324 "FireBlast" INV_Misc_QuestionMark
+#show Fire Blast
+/click FireBlast
+END
+MACRO 16777323 "Frostbolt" INV_Misc_QuestionMark
+#show Frostbolt
+/click Frostbolt
+END
+MACRO 16777217 "Invite" Ability_Creature_Cursed_01
+/invite Xiloh
+/invite Xulo
+END
+MACRO 16777416 "Nova" INV_Misc_QuestionMark
+#showtooltip Frost Nova
+/castsequence reset=25 ,Frost Nova,
+END
+MACRO 16778216 "Polymorph" INV_Misc_QuestionMark
+#showtooltip Polymorph
+/click Polymorph
+END
+MACRO 16777316 "Xalo" Spell_Nature_BloodLust
+/click [button:1] AssistXalo
+/click [button:2] AssistXalo RightButton
+/click [button:3] AssistXalo MiddleButton
+/click [button:4] AssistXalo Button4
+END
+MACRO 16777317 "Xiloh" Spell_Nature_BloodLust
+/click [button:1] AssistXiloh
+/click [button:2] AssistXiloh RightButton
+/click [button:3] AssistXiloh MiddleButton
+/click [button:4] AssistXiloh Button4
+END
+MACRO 16777318 "Xulo" Spell_Nature_BloodLust
+/click [button:1] AssistXulo
+/click [button:2] AssistXulo RightButton
+/click [button:3] AssistXulo MiddleButton
+/click [button:4] AssistXulo Button4
+END
