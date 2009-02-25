@@ -1,0 +1,11 @@
+## Interface: 30000
+## Title: ActionBarTargeting
+## Notes: Multibox targeting using [actionbar:#]
+## Author: Chorizotarian
+## Version: 0.1
+## X-Category: Miscellaneous, Multiboxing
+## SavedVariables:
+## OptionalDeps: Ace3
+
+embeds.xml
+ActionBarTargeting.lua
