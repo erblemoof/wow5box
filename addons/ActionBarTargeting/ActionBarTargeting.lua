@@ -1,7 +1,32 @@
-local ABT = LibStub("AceAddon-3.0"):NewAddon("ActionBarTargeting", "AceConsole-3.0", "AceEvent-3.0")
+local ADDON_NAME = "ActionBarTargeting"
+local ABT = LibStub("AceAddon-3.0"):NewAddon(ADDON_NAME, "AceConsole-3.0")
 
 local tconcat = table.concat
 local tremove = table.remove
+
+-- Binding variables
+BINDING_HEADER_ABT = ADDON_NAME;
+_G["BINDING_NAME_CLICK FollowMain:LeftButton"] = "Follow"
+_G["BINDING_NAME_CLICK TargetMainTarget:LeftButton"] = "Target main's target"
+
+function ABT:OnInitialize()
+    local options = {
+        name = ADDON_NAME,
+        handler = ABT,
+        type = "group",
+        args = {
+            print = {
+                type = "execute",
+                name = "Print",
+                desc = "Print button macros",
+                func = "PrintButtonMacros"
+            }
+        }
+	}
+
+    local cfg = LibStub("AceConfig-3.0")
+	cfg:RegisterOptionsTable(ADDON_NAME, options, "abt")
+end
 
 -- Concatenates input arguments to create macro text
 function ABT:CreateMacro(...)
@@ -83,11 +108,11 @@ end
 -- Helper function to validate external API parameters
 local function ValidateMacroParams(team, toonIndex)
     if type(team) ~= "table" or #team < 1 then
-        error("Invalid team: " .. team)
+        error("Invalid team")
     end
 
     if type(toonIndex) ~= "number" then
-        error("Invalid toon index: " .. toonIndex)
+        error("Invalid toon index")
     end
 end
 
@@ -153,21 +178,43 @@ function ABT:CreateFollowMacro(team, toonIndex)
     )
 end
 
--- Creates macro button
+-- Creates a macro button
 function ABT:CreateButton(name, macro)
-  local button = CreateFrame("Button", name, UIParent, "SecureActionButtonTemplate")
-  button:SetAttribute("type", "macro")
-  button:SetAttribute("macrotext", macro)
+    -- Create the button
+    self.buttonParent = self.buttonParent or CreateFrame("Frame", nil, UIParent)
+    local button = CreateFrame("Button", name, self.buttonParent, "SecureActionButtonTemplate")
+    button:SetAttribute("type", "macro")
+    button:SetAttribute("macrotext", macro)
 end
 
+-- Creates all of the buttons
 function ABT:CreateAllButtons(team)
-    ABT:CreateButton("SetOffensiveTarget", ABT:CreateOffensiveTargetMacro(team))
-    ABT:CreateButton("SetHealingTarget", ABT:CreateHealingTargetMacro(team))
-    ABT:CreateButton("TargetMain", ABT:CreateTargetMainMacro(team))
-    ABT:CreateButton("TargetMainTarget", ABT:CreateTargetMainTargetMacro(team))
-    ABT:CreateButton("FollowMain", ABT:CreateFollowMacro(team))
+    local toonIndex = ABT:PlayerIndex(team)
+    if toonIndex == nil then
+        error("Player must be in team")
+    end
+    
+    ABT:CreateButton("SetOffensiveTarget", ABT:CreateOffensiveTargetMacro(team, toonIndex))
+    ABT:CreateButton("SetHealingTarget", ABT:CreateHealingTargetMacro(team, toonIndex))
+    ABT:CreateButton("TargetMain", ABT:CreateTargetMainMacro(team, toonIndex))
+    ABT:CreateButton("TargetMainTarget", ABT:CreateTargetMainTargetMacro(team, toonIndex))
+    ABT:CreateButton("FollowMain", ABT:CreateFollowMacro(team, toonIndex))
 end
 
+-- Convenience global function for use in macros
 function ABT_CreateAllButtons(team)
     ABT:CreateAllButtons(team)
+end
+
+-- Prints all of the button macros
+function ABT:PrintButtonMacros()
+    if self.buttonParent == nil then
+        ABT:Print("No buttons created")
+    else
+        local kids = { self.buttonParent:GetChildren() }
+        for _, button in ipairs(kids) do
+            self:Print(button:GetName())
+            self:Print(button:GetAttribute("macrotext"))
+        end
+    end
 end

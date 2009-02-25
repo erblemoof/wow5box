@@ -1,0 +1,4 @@
+<Bindings>
+  <Binding name="CLICK FollowMain:LeftButton" header="ABT" />
+  <Binding name="CLICK TargetMainTarget:LeftButton" />
+</Bindings>

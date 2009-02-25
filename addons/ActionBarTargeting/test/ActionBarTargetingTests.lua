@@ -18,7 +18,7 @@ AbtTests = {
 
 function AbtTests:setUp()
     UnitName = function()
-        return "SomeToon"
+        return "SomeToon", nil
     end
 end
 
