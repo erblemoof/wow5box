@@ -79,7 +79,6 @@ end
 -----------------------------------------------------------------------
 
 -- TODO: Roster sharing via RPC (w/ option to control)
--- TODO: unitid extensions: "roster", "shaman1", etc.
 function MultiboxRoster:ScanActiveRoster()
     -- scan the party/raid for multibox chars
 	local newActiveRoster = {}
