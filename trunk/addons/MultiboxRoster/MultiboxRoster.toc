@@ -1,24 +1,12 @@
-## Interface: 20400
+## Interface: 30000
 ## Title: MultiboxRoster
-## Notes: Multiboxing character roster
+## Notes: Multibox character roster
 ## Author: Chorizotarian
-## Version: 0.3
+## Version: 0.4
 ## X-Category: Miscellaneous, Multiboxing
 ## SavedVariables: MultiboxRosterDB
-## OptionalDeps: Ace3, Remoting
-## X-Embeds: Ace3, Remoting
+## OptionalDeps: Ace3
 
-LibStub.lua
-Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
-Libs\AceGUI-3.0\AceGUI-3.0.xml
-
-Libs\AceAddon-3.0\AceAddon-3.0.xml
-Libs\AceBucket-3.0\AceBucket-3.0.xml
-Libs\AceDB-3.0\AceDB-3.0.xml
-Libs\AceConfig-3.0\AceConfig-3.0.xml
-Libs\AceConsole-3.0\AceConsole-3.0.xml
-Libs\AceEvent-3.0\AceEvent-3.0.xml
-
-Core.lua
-Options.lua
-PublicApi.lua
+embeds.xml
+MultiboxRoster.lua
+Teams.lua
