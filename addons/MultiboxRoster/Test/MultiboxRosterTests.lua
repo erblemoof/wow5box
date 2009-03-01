@@ -1,195 +1,131 @@
-require("wowunit")
-dofile("../../Ace3/tests/wow_api.lua")
+dofile("wowunit/wowunit.lua")
+dofile("wowunit/wow_api.lua")
 
-local function fileExists(path)
-    local f = io.open(path)
-	if f then io.close(f) end
-	return f ~= nil
-end
+local libs = { "LibStub", "CallbackHandler-1.0", "AceAddon-3.0", "AceBucket-3.0", "AceConsole-3.0", "AceEvent-3.0" }
+WowUnit:LoadLibs(libs)
 
--- loads an external from either an embedded or non-embedded location
-local function LoadExternal(name, searchPaths)
-    local up = "../"
-    local subdir = name .. "/" .. name .. ".lua"
-    searchPaths = searchPaths or {
-        up .. up .. name,
-        up .. up .. subdir,
-        up .. up .. "Ace3/" .. subdir,
-        up .. up .. "Ace3/AceConfig-3.0/" .. subdir,
-        "Libs/" .. name,
-        "Libs/" .. name .. subdir
-    }
-    
-    for _, v in pairs(searchPaths) do
-        if fileExists(v) then
-            dofile(v)
-            WoWAPI_FireEvent("ADDON_LOADED", name)
-            return
-        end
-    end
-    error("LoadExternal failed: " .. name)
-end
+dofile("../MultiboxRoster.lua")
+dofile("../Teams.lua")
 
-dofile("../LibStub.lua")
-
-local libs = { "CallbackHandler-1.0", "AceGUI-3.0", "AceAddon-3.0", "AceBucket-3.0", "AceDB-3.0", "AceConfigRegistry-3.0",
-    "AceConfigCmd-3.0", "AceConfigDialog-3.0", "AceConfig-3.0", "AceConsole-3.0", "AceEvent-3.0" }
-for _,v in pairs(libs) do
-    LoadExternal(v)
-end
-
-dofile("../Core.lua")
-dofile("../Options.lua")
-dofile("../PublicApi.lua")
-
--- simulate game start
-WoWAPI_FireEvent("ADDON_LOADED", "MultiboxRoster")
--- WoWAPI_FireEvent("PLAYER_LOGIN")
-
-local MultiboxRoster = LibStub("AceAddon-3.0"):GetAddon("MultiboxRoster")
+local MBR = LibStub("AceAddon-3.0"):GetAddon("MultiboxRoster")
 
 -----------------------------------------------------------------------
 -- WoW API fakery
 -----------------------------------------------------------------------
 
-local worldToons= { "Iaggo", "Katator", "Kitator", "Ketator", "Kutator", "Akishâ", "Xoot" }
-local worldMobs = { "Hogger", "Edwin VanCleef" }
-local partyToons = { "Katator", "Kitator" }
-local raidToons = { "Katator", "Kitator", "Kutator", "Akishâ"  }
-local inParty, inRaid
+local player, raid, party
 
-local function UnitInList(unit, list)
-    for k in pairs(list) do
-        if k == unit then return true end
+GetNumPartyMembers = function() return #party end
+GetNumRaidMembers = function() return #raid end
+UnitInParty = function(id) return true end
+UnitInRaid = function(id) return true end
+GetRaidRosterInfo = function(i) return raid[i] end
+
+function UnitName(id)
+    if (id == "player") then
+        return player, nil
+    elseif (string.match(id, "^party") ~= nil) then
+        local i = 0 + string.match(id, "%d$")
+        return party[i], nil
     end
-    return false
-end
-
-function UnitIsPlayer(unit)
-    return UnitInList(unit, worldToons)
-end
-
-function UnitIsEnemy(unit)
-    return UnitInList(unit, worldMobs)
-end
-
-function UnitExists(unit)
-    return UnitIsPlayer(unit) or UnitIsEnemy(unit)
-end
-
-function UnitName(unit)
-    local i = string.match(unit, "^party(%d+)$")
-    if i then
-        return partyToons[tonumber(i)]
-    end
-    return unit
-end
-
-function UnitInParty()
-    return inParty
-end
-
-function UnitInRaid()
-    return inRaid
-end
-
-function GetNumPartyMembers()
-    return #partyToons
-end
-
-function GetNumRaidMembers()
-    return #raidToons
-end
-
-function GetRaidRosterInfo(i)
-    return raidToons[i]
 end
 
 -----------------------------------------------------------------------
 -- Test class
 -----------------------------------------------------------------------
 
-MultiboxRosterTests = {
-    globals = _G
+MbrTests = {
+    globals = _G,
+    player = "SomeToon",
+    raid = {},
+    party = {},
+    teams = {
+        team1 = { "Crockpot", "Pawfoo", "Pewmew", "Pieforu", "Pumu" },
+        team2 = { "Axo", "Xalo" },
+        team3 = { "Axo", "Xalo", "Xiloh" },
+        team4 = { "Axo" }
+    }
 }
 
-function MultiboxRosterTests:setUp()
-    MultiboxRoster:Clear()
-    inParty = true
-    inRaid = false
+function MbrTests:setUp()
+    player = MbrTests.player
+    raid = MbrTests.raid
+    party = MbrTests.party
+    MBR.teams = MbrTests.teams
 end
 
-function MultiboxRosterTests:tearDown()
+function MbrTests:tearDown()
     _G = self.globals
 end
 
 -----------------------------------------------------------------------
--- Core Tests
+-- Tests
 -----------------------------------------------------------------------
 
-function MultiboxRosterTests:test_AddCharacter()
-    MultiboxRoster:AddCharacter("Mewpew")
-    assertTrue(MultiboxRoster:IncludesCharacter("Mewpew"))
-    MultiboxRoster:AddCharacter("Akishâ")
-    assertTrue(MultiboxRoster:IncludesCharacter("Akishâ"))
+function MbrTests:test_UnitName()
+    assertEquals(UnitName("player"), "SomeToon")
+    player = "foo"
+    assertEquals(UnitName("player"), "foo")
     
-    assertNotEmpty(MultiboxRoster:GetRoster())
+    assertNil(UnitName("party1"))
+    party = { "A", "B", "C" }
+    assertEquals(UnitName("party1"), "A")
+    assertEquals(UnitName("party3"), "C")
+    assertNil(UnitName("party4"))
 end
 
-function MultiboxRosterTests:test_RemoveCharacter()
-    MultiboxRoster:AddCharacter("Akishâ")
-    MultiboxRoster:AddCharacter("Mewpew")
-
-    MultiboxRoster:RemoveCharacter("Akishâ")
-    assertFalse(MultiboxRoster:IncludesCharacter("Akishâ"))
-
-    MultiboxRoster:RemoveCharacter("Mewpew")
-    assertFalse(MultiboxRoster:IncludesCharacter("Mewpew"))
-    assertEmpty(MultiboxRoster:GetRoster())
+function MbrTests:test_Teams()
+    assertEquals(MBR.teams["team1"][1], "Crockpot")
+    assertEquals(MBR.teams["team1"][5], "Pumu")
+    assertEquals(MBR.teams["team1"][6], nil)
+    assertEquals(MBR.teams["team2"][1], "Axo")
+    assertEquals(MBR.teams["bogus"], nil)
 end
 
-function MultiboxRosterTests:test_Clear()
-    MultiboxRoster:AddCharacter("Mewpew")
-    MultiboxRoster:AddCharacter("Akishâ")
-    MultiboxRoster:Clear()
-    assertEmpty(MultiboxRoster:GetRoster())
-    assertFalse(MultiboxRoster:IncludesCharacter("Mewpew"))
-    assertFalse(MultiboxRoster:IncludesCharacter("Akishâ"))
+function MbrTests:test_GetPartyMembers()
+    party = {}
+    assertTableEquals(MBR:GetPartyMembers(), party)
+    party = { "a" }
+    assertTableEquals(MBR:GetPartyMembers(), party)
+    party = { "a", "b" }
+    assertTableEquals(MBR:GetPartyMembers(), party)
 end
 
-function MultiboxRosterTests:test_Trust()
-    assertFalse(MultiboxRoster:IsTrusted("Mewpew"))
-    assertFalse(MultiboxRoster:IsTrusted("Akishâ"))
+function MbrTests:test_GetRaidMembers()
+    raid = {}
+    assertTableEquals(MBR:GetRaidMembers(), raid)
+    raid = { "a" }
+    assertTableEquals(MBR:GetRaidMembers(), raid)
+    raid = { "a", "b" }
+    assertTableEquals(MBR:GetRaidMembers(), raid)
+end
 
-    MultiboxRoster:AddCharacter("Mewpew")
-    assertTrue(MultiboxRoster:IsTrusted("Mewpew"))
-    MultiboxRoster:AddCharacter("Akishâ")
-    assertTrue(MultiboxRoster:IsTrusted("Akishâ"))
+local function AssertDetectTeam(group, expectedName)
+    local name, team, activeToons = MBR:DetectTeam(group)
+    assertEquals(name, expectedName)
+    if (expectedName ~= nil) then
+        assertTableEquals(team, MBR.teams[name])
+    end
     
-    MultiboxRoster:Clear()
-    assertFalse(MultiboxRoster:IsTrusted("Mewpew"))
-    assertFalse(MultiboxRoster:IsTrusted("Akishâ"))
+    expectedActiveToons = team or {}
+    assertTableEquals(activeToons, expectedActiveToons)
 end
 
------------------------------------------------------------------------
--- Options Tests
------------------------------------------------------------------------
+function MbrTests:test_DetectTeam()
+    assertError(MBR.DetectTeam, MBR, {})
 
-function MultiboxRosterTests:test_UnitToName()
-    assertEquals(MultiboxRoster:UnitToName("Ĩaggó"), "Ĩaggó")
+    AssertDetectTeam({ "Axo", "Xalo" }, "team2")
+    AssertDetectTeam({ "Xalo", "Axo" }, "team2")
+    AssertDetectTeam({ "Whoever", "Axo", "Nope", "Xalo", "Someotherguy" }, "team2")
 
-    assertError(function() MultiboxRoster:UnitToName(nil) end)
-    assertError(function() MultiboxRoster:UnitToName("") end)
+    AssertDetectTeam({ "Xalo" }, nil)
 
-    assertEquals(MultiboxRoster:UnitToName("Iaggo"), "Iaggo")
-    assertEquals(MultiboxRoster:UnitToName("Ĩaggó"), "Ĩaggó")
-    assertEquals(MultiboxRoster:UnitToName("ĩaggó"), "ĩaggó")
-    assertEquals(MultiboxRoster:UnitToName("Ĩĩ煞煟煠煢"), "Ĩĩ煞煟煠煢")
+    AssertDetectTeam({ "Axo", "Xalo", "Xiloh" }, "team3")
+    AssertDetectTeam({ "Xalo", "Axo", "Xiloh" }, "team3")
 end
 
 -----------------------------------------------------------------------
 -- Go!
 -----------------------------------------------------------------------
 
---LuaUnit.result.verbosity = 0
-LuaUnit:run("MultiboxRosterTests")
+LuaUnit:run("MbrTests")

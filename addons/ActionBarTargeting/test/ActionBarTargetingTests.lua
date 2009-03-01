@@ -78,32 +78,22 @@ function values(t)
     end
 end
 
-local function assertIterEquals(iter, expected)
-    local iExp = 1
-    for bar, toon in iter do
-        local expBar, expToon = expected[iExp], expected[iExp + 1]
-        assertEquals(bar, expBar)
-        assertEquals(toon, expToon)
-        iExp = iExp + 2
-    end
-end
-
 function AbtTests:test_BarPairs()
-    assertIterEquals(ABT:BarPairs({}), {})
-    assertIterEquals(ABT:BarPairs({}, 1), {})
-    assertIterEquals(ABT:BarPairs({}, 0), {})
+    assertIterEquals({ ABT:BarPairs({}) }, {})
+    assertIterEquals({ ABT:BarPairs({}, 1) }, {})
+    assertIterEquals({ ABT:BarPairs({}, 0) }, {})
 
-    assertIterEquals(ABT:BarPairs({"A"}), {1, "A"})
-    assertIterEquals(ABT:BarPairs({"A"}, 2), {1, "A"})
-    assertIterEquals(ABT:BarPairs({"A"}, 1), {})
+    assertIterEquals({ ABT:BarPairs({"A"}) }, {1, "A"})
+    assertIterEquals({ ABT:BarPairs({"A"}, 2) }, {1, "A"})
+    assertIterEquals({ ABT:BarPairs({"A"}, 1) }, {})
 
     -- Max actionbar index is 6, so max # bar pairs is also 6
     local bigteam = { "a", "b", "c", "d", "e", "f", "g", "h", "i" }
-    assertIterEquals(ABT:BarPairs(bigteam), {1, "a", 2, "b", 3, "c", 4, "d", 5, "e", 6, "f"})
-    assertIterEquals(ABT:BarPairs(bigteam, 1), {2, "b", 3, "c", 4, "d", 5, "e", 6, "f"})
-    assertIterEquals(ABT:BarPairs(bigteam, 2), {1, "a", 3, "c", 4, "d", 5, "e", 6, "f"})
-    assertIterEquals(ABT:BarPairs(bigteam, 6), {1, "a", 2, "b", 3, "c", 4, "d", 5, "e"})
-    assertIterEquals(ABT:BarPairs(bigteam, 7), {1, "a", 2, "b", 3, "c", 4, "d", 5, "e", 6, "f"})
+    assertIterEquals({ ABT:BarPairs(bigteam) }, {1, "a", 2, "b", 3, "c", 4, "d", 5, "e", 6, "f"})
+    assertIterEquals({ ABT:BarPairs(bigteam, 1) }, {2, "b", 3, "c", 4, "d", 5, "e", 6, "f"})
+    assertIterEquals({ ABT:BarPairs(bigteam, 2) }, {1, "a", 3, "c", 4, "d", 5, "e", 6, "f"})
+    assertIterEquals({ ABT:BarPairs(bigteam, 6) }, {1, "a", 2, "b", 3, "c", 4, "d", 5, "e"})
+    assertIterEquals({ ABT:BarPairs(bigteam, 7) }, {1, "a", 2, "b", 3, "c", 4, "d", 5, "e", 6, "f"})
 end
 
 function AbtTests:test_JoinBarConditions()
@@ -120,48 +110,6 @@ function AbtTests:test_JoinBarConditions()
     assertEquals(ABT:JoinBarConditions(team, 1), "[bar:2] b; [bar:3] c; [bar:4] d; [bar:5] e")
     assertEquals(ABT:JoinBarConditions(team, 2), "[bar:1] a; [bar:3] c; [bar:4] d; [bar:5] e")
     assertEquals(ABT:JoinBarConditions(team, 5), "[bar:1] a; [bar:2] b; [bar:3] c; [bar:4] d")
-end
-
-function AbtTests:test_CreateOffensiveTargetMacro()
-    local team = { "a", "b", "c" }
-    assertEquals(ABT:CreateOffensiveTargetMacro(team, 1), [[
-/stopmacro [exists,harm,nodead]
-/assist [bar:2] b; [bar:3] c
-/startattack [harm]
-]])
-end
-
-function AbtTests:test_CreateHealingTargetMacro()
-    local team = { "a", "b", "c" }
-    assertEquals(ABT:CreateHealingTargetMacro(team, 1), [[
-/targetexact [bar:2] b; [bar:3] c
-/target [nobar:1,help,nodead] targettarget
-]])
-end
-
-function AbtTests:test_CreateTargetMainMacro()
-    local team = { "a", "b", "c" }
-    assertEquals(ABT:CreateTargetMainMacro(team, 1), [[
-/targetexact [bar:2] b; [bar:3] c
-]])
-end
-
-function AbtTests:test_CreateTargetMainTargetMacro()
-    local team = { "a", "b", "c" }
-    assertEquals(ABT:CreateTargetMainTargetMacro(team, 1), [[
-/stopmacro [bar:1]
-/targetexact [bar:2] b; [bar:3] c
-/target targettarget
-]])
-end
-
-function AbtTests:test_CreateFollowMacro()
-    local team = { "a", "b", "c" }
-    assertEquals(ABT:CreateFollowMacro(team, 1), [[
-/stopmacro [bar:1]
-/targetexact [bar:2] b; [bar:3] c
-/follow
-]])
 end
 
 -----------------------------------------------------------------------

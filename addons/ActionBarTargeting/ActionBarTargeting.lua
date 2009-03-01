@@ -1,5 +1,5 @@
 local ADDON_NAME = "ActionBarTargeting"
-local ABT = LibStub("AceAddon-3.0"):NewAddon(ADDON_NAME, "AceConsole-3.0")
+local ABT = LibStub("AceAddon-3.0"):NewAddon(ADDON_NAME, "AceConsole-3.0", "AceEvent-3.0")
 
 local tconcat = table.concat
 local tremove = table.remove
@@ -26,6 +26,20 @@ function ABT:OnInitialize()
 
     local cfg = LibStub("AceConfig-3.0")
 	cfg:RegisterOptionsTable(ADDON_NAME, options, "abt")
+end
+
+function ABT:OnEnable()
+    self:RegisterMessage("MultiboxRoster_TeamChanged", "OnTeamChanged")
+end
+
+function ABT:OnDisable()
+    self:UnregisterMessage("MultiboxRoster_TeamChanged")
+end
+
+function ABT:OnTeamChanged(msgName, team, name)
+    if (team ~= nil and #team > 0) then
+        self:CreateAllButtons(team, name)
+    end
 end
 
 -- Concatenates input arguments to create macro text
@@ -122,7 +136,7 @@ function ABT:CreateOffensiveTargetMacro(team, toonIndex)
     ValidateMacroParams(team, toonIndex)
     
     return ABT:CreateMacro(
-        "/stopmacro [exists,harm,nodead]\n",
+        --"/stopmacro [exists,harm,nodead]\n",
         "/assist " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
         "/startattack [harm]\n"
     )
@@ -188,7 +202,7 @@ function ABT:CreateButton(name, macro)
 end
 
 -- Creates all of the buttons
-function ABT:CreateAllButtons(team)
+function ABT:CreateAllButtons(team, name)
     local toonIndex = ABT:PlayerIndex(team)
     if toonIndex == nil then
         error("Player must be in team")
@@ -199,6 +213,9 @@ function ABT:CreateAllButtons(team)
     ABT:CreateButton("TargetMain", ABT:CreateTargetMainMacro(team, toonIndex))
     ABT:CreateButton("TargetMainTarget", ABT:CreateTargetMainTargetMacro(team, toonIndex))
     ABT:CreateButton("FollowMain", ABT:CreateFollowMacro(team, toonIndex))
+    
+    name = name or "unknown"
+    self:Print("Buttons created for team " .. name .. " - " .. tconcat(team, ", "))
 end
 
 -- Convenience global function for use in macros

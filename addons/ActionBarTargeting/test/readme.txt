@@ -6,7 +6,7 @@ Test Setup:
 5) cd to this directory
 6) {lua} ActionBarTargetingTests.lua, where {lua} is either the alias from 3 or the full path
 
-Results should look like this:
+Results should look something like this:
 
 test> lua .\ActionBarTargetingTests.lua
 >>>>>>>>> AbtTests
