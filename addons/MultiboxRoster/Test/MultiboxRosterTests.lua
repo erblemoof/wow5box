@@ -84,11 +84,11 @@ end
 
 function MbrTests:test_GetPartyMembers()
     party = {}
-    assertTableEquals(MBR:GetPartyMembers(), party)
+    assertTableEquals(MBR:GetPartyMembers(), { player })
     party = { "a" }
-    assertTableEquals(MBR:GetPartyMembers(), party)
+    assertTableEquals(MBR:GetPartyMembers(), { player, "a" })
     party = { "a", "b" }
-    assertTableEquals(MBR:GetPartyMembers(), party)
+    assertTableEquals(MBR:GetPartyMembers(), { player, "a", "b" })
 end
 
 function MbrTests:test_GetRaidMembers()
@@ -101,14 +101,11 @@ function MbrTests:test_GetRaidMembers()
 end
 
 local function AssertDetectTeam(group, expectedName)
-    local name, team, activeToons = MBR:DetectTeam(group)
+    local name, team = MBR:DetectTeam(group)
     assertEquals(name, expectedName)
     if (expectedName ~= nil) then
         assertTableEquals(team, MBR.teams[name])
     end
-    
-    expectedActiveToons = team or {}
-    assertTableEquals(activeToons, expectedActiveToons)
 end
 
 function MbrTests:test_DetectTeam()
