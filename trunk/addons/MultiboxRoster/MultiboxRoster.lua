@@ -5,7 +5,6 @@ local tsort = table.sort
 function MBR:OnInitialize()
 	self.activeTeam = nil
 	self.activeTeamName = nil
-	self.activeToons = {}
 end
 
 function MBR:OnEnable()
@@ -30,7 +29,7 @@ end
 
 -- Handle party or raid changed events
 function MBR:DoGroupChanged(group)
-    local name, team, activeToons = MBR:DetectTeam(group)
+    local name, team = MBR:DetectTeam(group)
     
     if (name ~= self.activeTeamName) then
         self:SendMessage("MultiboxRoster_TeamChanged", team, name)
@@ -38,7 +37,6 @@ function MBR:DoGroupChanged(group)
         
         self.activeTeamName = name
         self.activeTeam = team
-        self.activeToons = activeToons
         self:ListTeam()
     end
 end
@@ -77,13 +75,11 @@ function MBR:DetectTeam(group)
     assert(type(group) == "table")
     assert(#group > 0)
     
-    -- Make hashtable of the group toons and active toons
+    -- Make hashtable of the group toons
     local groupToons = {}
     for _, toon in ipairs(group) do
         groupToons[toon] = true
     end
-    
-    local activeToons = {}
     
     -- Find a team w/ all members in the group. If more than one team matches return the largest.
     local bestTeam = nil
@@ -96,7 +92,6 @@ function MBR:DetectTeam(group)
             for _, toon in ipairs(team) do
                 match = (groupToons[toon] ~= nil)
                 if (not match) then break end
-                activeToons[toon] = true
             end
             
             if (match) then
@@ -107,14 +102,7 @@ function MBR:DetectTeam(group)
         end
     end
     
-    -- Copy the activeToon keys to a flat list and sort
-    local activeToonsSorted = {}
-    for k,_ in pairs(activeToons) do
-        activeToonsSorted[1 + #activeToonsSorted] = k
-    end
-    tsort(activeToonsSorted)
-    
-    return bestTeamName, bestTeam, activeToonsSorted
+    return bestTeamName, bestTeam
 end
 
 -- Detect the group type and then the team
