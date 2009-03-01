@@ -1,0 +1,10 @@
+#labels Featured
+World of Warcraft addon for tracking multibox teams.
+
+= Introduction =
+
+= Features =
+
+= Setup =
+
+= Future =
