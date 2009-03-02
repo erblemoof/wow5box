@@ -93,3 +93,7 @@ only extra manual step over a focus-based system is defining your teams with Mul
     # Bind a key to `TargetMainTarget` if you want. (Helpful as an override to sticky targeting.)
     
 That's it!
+
+== Donate ==
+
+[https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=FJVUV4S9GXX9U&lc=US&item_name=wow5box&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif]
