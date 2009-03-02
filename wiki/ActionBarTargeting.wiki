@@ -11,10 +11,8 @@ Targeting macros are bound to invisible buttons that can be /click'ed to do the 
 the following macro will make one of your shaman followers target your main's target (unless they already have a
 hostile target) and cast Lightning Bolt:
 
-{{{
-/click SetOffensiveTarget
-/cast Lightning Bolt
-}}}
+{{{/click SetOffensiveTarget
+/cast Lightning Bolt}}}
 
 The macro for the SetOffensiveTarget button looks like this:
 
