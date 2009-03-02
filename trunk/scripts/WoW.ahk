@@ -215,20 +215,20 @@ XButton2::ForceAll("{NumpadMult down}{NumpadMult up}") ; follow
 ;XButton1::BeginSpreadLine()
 ;XButton1 Up::EndSpreadLine()
 
-{::ForceClones("{W down}")
-{ Up::ForceClones("{W up}")
+PgUp::ForceClones("{W down}")
+PgUp Up::ForceClones("{W up}")
 
-^{::BeginSpreadLine()
-^{ Up::EndSpreadLine()
+^PgUp::BeginSpreadLine()
+^PgUp Up::EndSpreadLine()
 
-}::ForceClones("{S down}")
-} Up::ForceClones("{S up}")
+PgDn::ForceClones("{S down}")
+PgDn Up::ForceClones("{S up}")
 
-|::BeginSpreadBox()
-| Up::EndSpreadBox()
+End::BeginSpreadBox()
+End Up::EndSpreadBox()
 
 ; all jump
-^MButton::ForceAll("{MButton down}{MButton up}")
+;^MButton::ForceAll("{MButton down}{MButton up}")
 
 ;-------------------------------------
 ; Unmodified Hotkeys
@@ -289,11 +289,14 @@ XButton2::ForceAll("{NumpadMult down}{NumpadMult up}") ; follow
 ; Modifiers
 ;-------------------------------------
 
-~Control::SendAll("{Control down}")
-~Control Up::SendAll("{Control up}")
+Control::ForceAll("{Control down}")
+Control Up::ForceAll("{Control up}")
 
-~Alt::SendAll("{Alt down}")
-~Alt Up::SendAll("{Alt up}")
+Alt::ForceAll("{Alt down}")
+Alt Up::ForceAll("{Alt up}")
+
+Shift::ForceAll("{Shift down}")
+Shift Up::ForceAll("{Shift up}")
 
 ;**************************************************************************************************
 ; GUI
