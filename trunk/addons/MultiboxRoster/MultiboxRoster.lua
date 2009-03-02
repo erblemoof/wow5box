@@ -33,8 +33,6 @@ function MBR:DoGroupChanged(group)
     
     if (name ~= self.activeTeamName) then
         self:SendMessage("MultiboxRoster_TeamChanged", team, name)
-        self:Print(team, name)
-        
         self.activeTeamName = name
         self.activeTeam = team
         self:ListTeam()
@@ -117,26 +115,6 @@ function MBR:DetectGroupAndTeam()
         self:ListTeam(true)
     end
 end
-
---[[
-function MBR:CheckTeam(name)
-    team = self.teams[name]
-    if (team == nil) then
-        self:Print("Invalid team")
-    else
-        local test = function() return false end
-        if UnitInParty("player") then
-            test = UnitInParty
-        elseif UnitInRaid("player") then
-            test = UnitInRaid
-        end
-
-        for _, toon in ipairs(team) do
-            self:Print(toon .. " - " .. test(toon))
-        end
-    end
-end
-]]--
 
 function MBR:InitOptions()
 	local options = {

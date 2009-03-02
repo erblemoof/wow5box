@@ -11,11 +11,17 @@
 
 local MBR = LibStub("AceAddon-3.0"):GetAddon("MultiboxRoster")
 
-MBR.teams = {}
+MBR.teams = {
 
 -----------------------------------------------------------------------
--- ***Replace everything below here***
+-- *** Replace everything below here ***
 -----------------------------------------------------------------------
 
-MBR.teams["teamname1"] = { "Toon1", "Toon2", "Toon3", "Toon4", "Toon5" }
-MBR.teams["teamname2"] = { "Toon6", "Toon7", "etc" }
+    "teamname1" = { "Toon1", "Toon2", "Toon3", "Toon4", "Toon5" },
+    "teamname2" = { "Toon6", "Toon7", "etc" }
+
+-----------------------------------------------------------------------
+-- *** But leave the ending bracket ***
+-----------------------------------------------------------------------
+
+}

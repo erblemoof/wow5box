@@ -136,9 +136,9 @@ function ABT:CreateOffensiveTargetMacro(team, toonIndex)
     ValidateMacroParams(team, toonIndex)
     
     return ABT:CreateMacro(
-        --"/stopmacro [exists,harm,nodead]\n",
-        "/assist " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
-        "/startattack [harm]\n"
+        "/startattack\n",
+        "/stopmacro [exists,harm,nodead]\n",
+        "/assist " .. ABT:JoinBarConditions(team, toonIndex)
     )
 end
 
@@ -154,7 +154,7 @@ function ABT:CreateHealingTargetMacro(team, toonIndex)
     
     return ABT:CreateMacro(
         "/targetexact " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
-        "/target [" .. nobar .. "help,nodead] targettarget\n"
+        "/target [" .. nobar .. "help,nodead] targettarget"
     )
 end
 
@@ -164,7 +164,7 @@ function ABT:CreateTargetMainMacro(team, toonIndex)
     ValidateMacroParams(team, toonIndex)
     
     return ABT:CreateMacro(
-        "/targetexact " .. ABT:JoinBarConditions(team, toonIndex) .. "\n"
+        "/targetexact " .. ABT:JoinBarConditions(team, toonIndex)
     )
 end
 
@@ -176,7 +176,7 @@ function ABT:CreateTargetMainTargetMacro(team, toonIndex)
     return ABT:CreateMacro(
         "/stopmacro [bar:" .. toonIndex .. "]\n",
         "/targetexact " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
-        "/target targettarget\n"
+        "/target targettarget"
     )
 end
 
@@ -188,7 +188,7 @@ function ABT:CreateFollowMacro(team, toonIndex)
     return ABT:CreateMacro(
         "/stopmacro [bar:" .. toonIndex .. "]\n",
         "/targetexact " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
-        "/follow\n"
+        "/follow"
     )
 end
 
@@ -230,8 +230,7 @@ function ABT:PrintButtonMacros()
     else
         local kids = { self.buttonParent:GetChildren() }
         for _, button in ipairs(kids) do
-            self:Print(button:GetName())
-            self:Print(button:GetAttribute("macrotext"))
+            self:Print(button:GetName() .. ":\n" .. button:GetAttribute("macrotext"))
         end
     end
 end
