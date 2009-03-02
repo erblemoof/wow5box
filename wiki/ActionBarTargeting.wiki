@@ -5,20 +5,29 @@
 
 ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of
 characters. The targeting system is based on the [http://www.wowwiki.com/Making_a_macro#Complete_list actionbar]
-conditional, not focus, so focus is kept free for defining crowd control targets.
+conditional (active actionbar page), not focus, so focus is kept free for defining crowd control targets.
 
 Targeting macros are bound to invisible buttons that can be /click'ed to do the appropriate actions. For example,
 the following macro will make one of your shaman followers target your main's target (unless they already have a
 hostile target) and cast Lightning Bolt:
 
-{{{/click SetOffensiveTarget
-/cast Lightning Bolt}}}
-
-The macro for the SetOffensiveTarget button looks like this:
-
 {{{
+/click SetOffensiveTarget
+/cast Lightning Bolt
 }}}
 
+The macro for the SetOffensiveTarget is slightly different on each character. For example, on the 3rd character
+in a team of 5, the macro looks like this:
+
+{{{
+/startattack
+/stopmacro [exists,harm,nodead]
+/assist [bar:1] Toon1; [bar:2] Toon2; [bar:4] Toon4; [bar:5] Toon5
+}}}
+
+The first line starts auto-attack. The second line makes targeting sticky -- if your follower already has a
+hostile target they will stay on that target even if your main changes to a different one. The third line assists
+your current main, as defined by the current action bar page.
 Once you define your teams (using the
 companion addon MultiboxRoster), ActionBarTargeting automatically recognizes which team is currently active and
 updates your macros. Switching teams is as easy as logging in on the new characters and adding them to a group
@@ -37,7 +46,8 @@ or raid.
 === Advantages ===
 
     * Focus-free targeting and follow
-    * Automatically 
+    * Automatically recognizes the active team (using MultiboxRoster) and updates macros accordingly
+    * Works fine in battlegrounds, even if your toons wind up in different groups
 
 === Limitations ===
 
