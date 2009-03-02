@@ -34,7 +34,7 @@ ActionBarTargeting creates the following macros/buttons:
     * `FollowMain`: Clone follows your main.
 The macro for each button is slightly different for each character in a team. For example, take a team of 3 shamans:
 Katator, Ketator and Kitator. Each shaman uses the Lightning Bolt macro shown above for their primary nuke. On shaman 1
-(Katator) the `SetOffensiveTarget` macro looks like this:
+(Katator) `SetOffensiveTarget` looks like this:
 
 {{{
 /startattack
@@ -45,7 +45,7 @@ Katator, Ketator and Kitator. Each shaman uses the Lightning Bolt macro shown ab
 With the current actionbar page set to 1, Katator is the main, so all this macro does is start her auto-attack. She he will
 cast her lightning bolt as usual, at whatever she has targeted.
 
-On shaman 2 though (Ketator), the `SetOffensiveTarget` macro looks like this:
+On shaman 2 though (Ketator), `SetOffensiveTarget` looks like this:
 
 {{{
 /startattack
