@@ -3,17 +3,18 @@
 
 == Introduction ==
 
-MultiboxMacro is a WoW addon that lets you define teams of multibox characters. The mechanism for this is pretty
-primitive at the moment. You have to edit a spacial LUA file and add a line like this for each team:
+MultiboxRoster is a WoW addon that lets you define teams of multibox characters. The mechanism for this is pretty
+primitive at the moment. You have to edit a special LUA file and add a line like this for each team:
 
 {{{
 "teamname" = { "Toon1", "Toon2", ... "ToonN" }
 }}}
 
 One you do that MultiboxRoster will automatically recognize team changes as you add characters to a party or
-raid, and it will fire a special event (`MultiboxRoster_TeamChanged`) other addons can use to do interesting stuff.
-Team composition and order are independent of party/raid membership and order, so you will get the same virtual team
-in the battlegrounds if your toons are scattered among multiple groups or if your normal main is not the party leader.
+raid, and it will fire a special event `MultiboxRoster_TeamChanged` that other addons can use to do interesting
+stuff. Team composition and order are independent of party/raid membership and order, so you will get the same
+virtual team in the battlegrounds if your toons are scattered among multiple groups or if your normal main is not
+the party leader.
 
 All of this only gets interesting if some other addon consumes the `MultiboxRoster_TeamChanged` event. At present
 ActionBarTargeting is the only consumer, but lots of other cool stuff is possible.
