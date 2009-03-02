@@ -69,7 +69,7 @@ The advantages of such a system are:
     * Works fine in battlegrounds, even if your toons wind up in different groups.
     * One-button selection of main, even in combat, using actionbar page keybinds.
 
-To the best of my knowledge only a few multiboxers have adopted his system or the variants that I proposed,
+To the best of my knowledge only a few multiboxers have adopted it though,
 probably because the macros and bar setup required are pretty complex. This only gets worse if you are trying
 to manage more than one team, which is what led me to an automated approach.
 
