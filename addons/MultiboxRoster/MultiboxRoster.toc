@@ -4,8 +4,8 @@
 ## Author: Chorizotarian
 ## Version: 0.4
 ## X-Category: Miscellaneous, Multiboxing
-## SavedVariables: MultiboxRosterDB
-## OptionalDeps: Ace3
+## SavedVariables:
+## OptionalDeps: Ace3, LibDogTag-3.0
 
 embeds.xml
 MultiboxRoster.lua
