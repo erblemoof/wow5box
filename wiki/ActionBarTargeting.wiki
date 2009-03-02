@@ -27,12 +27,11 @@ including in combat. You can even change the active actionbar page, and thus you
 == How It Works ==
 
 ActionBarTargeting creates the following macros/buttons:
-    * SetOffensiveTarget: Instructs a clone to assist your main unless they already have a hostile target (sticky targeting).
-    * SetHealingTarget: Clone targets your main's target (if friendly, not dead, etc.) or else your main.
-    * TargetMain: Clone targets your main.
-    * TargetMainTarget: Clone targets your main's target.
-    * FollowMain: Clone follows your main.
-
+    * `SetOffensiveTarget`: Instructs a clone to assist your main unless they already have a hostile target (sticky targeting).
+    * `SetHealingTarget`: Clone targets your main's target (if friendly, not dead, etc.) or else your main.
+    * `TargetMain`: Clone targets your main.
+    * `TargetMainTarget`: Clone targets your main's target.
+    * `FollowMain`: Clone follows your main.
 The macro for each button is slightly different for each character in a team. For example, take a team of 3 shamans:
 Katator, Ketator and Kitator. Each shaman uses the Lightning Bolt macro shown above for their primary nuke. On shaman 1
 (Katator) the `SetOffensiveTarget` macro looks like this:
@@ -90,6 +89,3 @@ manual step over a focus-based system is defining your teams with MultiboxRoster
     # Install the companion addon MultiboxRoster and follow the instructions to define your team(s).
     # For each of your offensive spells, create a macro like this:
     This will tell your follower shaman to target
-
-
-
