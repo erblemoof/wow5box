@@ -1,11 +1,12 @@
 #summary World of Warcraft addon for painless, focus-free multibox targeting and follow
 #labels Featured
 
-== Introduction ==
+= Introduction =
 
 ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of
 characters. The targeting system is based on the [http://www.wowwiki.com/Making_a_macro#Complete_list actionbar]
-conditional (active actionbar page), not focus, so focus is kept free for defining crowd control targets.
+conditional (active actionbar page), so focus is kept free for defining crowd control targets. Team membership
+is defined using the companion addon MultiboxRoster.
 
 Targeting macros are bound to invisible buttons that can be /click'ed to do the appropriate actions. For example,
 the following macro will make one of your shaman followers target your main's target (unless they already have a
@@ -28,12 +29,14 @@ in a team of 5, the macro looks like this:
 The first line starts auto-attack. The second line makes targeting sticky -- if your follower already has a
 hostile target they will stay on that target even if your main changes to a different one. The third line assists
 your current main, as defined by the current action bar page.
-Once you define your teams (using the
-companion addon MultiboxRoster), ActionBarTargeting automatically recognizes which team is currently active and
-updates your macros. Switching teams is as easy as logging in on the new characters and adding them to a group
-or raid.
 
-=== List of Macros ===
+To switch mains, just use whatever key your have bound to actionbar pages 1-5. For me this is F1-F5, but you can use whatever you like. (You can even change the active page in a macro using `/changeactionbar`, hmmm...)
+
+Once you define your teams with MultiboxRoster, ActionBarTargeting automatically recognizes the active team
+and updates your macros accordingly. Switching teams is as easy as logging in on the new characters and adding
+them to a group or raid.
+
+== List of Macros ==
 
 
 
@@ -43,25 +46,25 @@ or raid.
     * TargetMainTarget: Clone to targets your main's target.
     * FollowMain: Clone follows your main.
 
-=== Advantages ===
+== Advantages ==
 
-    * Focus-free targeting and follow
-    * Automatically recognizes the active team (using MultiboxRoster) and updates macros accordingly
-    * Works fine in battlegrounds, even if your toons wind up in different groups
+    * Focus-free targeting and follow.
+    * Automatically recognizes the active team (using MultiboxRoster) and updates macros accordingly.
+    * Works fine in battlegrounds, even if your toons wind up in different groups.
+    * One button selection of main, even in combat, using actionbar page keybinds.
 
-=== Limitations ===
+== Limitations ==
 
     * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged attack bars on a hunter.
     * Macros are not easily customizable yet. If you're not happy with mine your only recourse is to edit the definitions in `ActionBarTargeting.lua`. (I know this sucks -- I'm working on it.)
 
-== Setup ==
+= Setup =
 
     # Install the companion addon MultiboxRoster and follow the instructions to define your team(s).
     # For each of your offensive spells, create a macro like this:
     This will tell your follower shaman to target
 
-== How It Works ==
+= How It Works =
 
 The original idea for a targeting system based on action bars was proposed by Maqz on
-[http://www.dual-boxing.com/forums/index.php?page=Thread&threadID=4605&s=738cc98ae8e3b100b9f71057105c44a1e43497f1
-dual-boxing.com].
+[http://www.dual-boxing.com/forums/index.php?page=Thread&threadID=4605&s=738cc98ae8e3b100b9f71057105c44a1e43497f1 dual-boxing.com].
