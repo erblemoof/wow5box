@@ -8,7 +8,7 @@ characters. The targeting system is based on the [http://www.wowwiki.com/Making_
 conditional (active actionbar page), so focus is kept free for defining crowd control targets. Team membership
 is defined using the companion addon MultiboxRoster.
 
-Targeting macros are bound to invisible buttons that can be /click'ed to do the appropriate actions. For example,
+Targeting macros are bound to invisible buttons that can be `/click`'ed to do the appropriate actions. For example,
 the following macro will make one of your shaman followers target your main's target (unless they already have a
 hostile target) and cast Lightning Bolt:
 
@@ -17,7 +17,7 @@ hostile target) and cast Lightning Bolt:
 /cast Lightning Bolt
 }}}
 
-The macro for the SetOffensiveTarget is slightly different on each character. For example, on the 3rd character
+The macro for SetOffensiveTarget is slightly different on each character. For example, on the 3rd character
 in a team of 5, the macro looks like this:
 
 {{{
@@ -30,7 +30,8 @@ The first line starts auto-attack. The second line makes targeting sticky -- if 
 hostile target they will stay on that target even if your main changes to a different one. The third line assists
 your current main, as defined by the current action bar page.
 
-To switch mains, just use whatever key your have bound to actionbar pages 1-5. For me this is F1-F5, but you can use whatever you like. (You can even change the active page in a macro using `/changeactionbar`, hmmm...)
+To switch mains, just use whatever key your have bound to actionbar pages 1-5. For me this is F1-F5, but you can use
+whatever you like. (You can even change the active page in a macro using `/changeactionbar`, hmmm...)
 
 Once you define your teams with MultiboxRoster, ActionBarTargeting automatically recognizes the active team
 and updates your macros accordingly. Switching teams is as easy as logging in on the new characters and adding
@@ -44,8 +45,7 @@ ActionBarTargeting creates the following macros/buttons:
     * TargetMain: Clone to targets your main.
     * TargetMainTarget: Clone to targets your main's target.
     * FollowMain: Clone follows your main.
-
-To see the macro code type `/abt print` in-game.
+To see the macro code type `/abt print` in game.
     
 == Advantages ==
 
@@ -57,7 +57,7 @@ To see the macro code type `/abt print` in-game.
 == Limitations ==
 
     * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged attack bars on a hunter.
-    * Macros are not easily customizable yet. If you're not happy with mine your only recourse is to edit the definitions in `ActionBarTargeting.lua`. (I know this sucks -- I'm working on it.)
+    * Macros are not easily customizable. If you're not happy with mine your only recourse is to edit the definitions in `ActionBarTargeting.lua`. I know this sucks -- I'm working on something better.
 
 = Setup =
 
