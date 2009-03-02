@@ -6,13 +6,6 @@ MacroSequence.sequences = {
 -- General
 -------------------------------------------------------------------
 
-	Invite = { [[
-/invite Katator
-/invite Ketator
-/invite Kitator
-/invite Kutator
-	]] },
-
 	Accept = { [[
 /script AcceptGroup();
 /script AcceptQuest();
@@ -63,86 +56,119 @@ MacroSequence.sequences = {
 	]] },
 
 -------------------------------------------------------------------
--- Targeting:
---      button 1 = offensive target
---      button 2 = healing target
---      button 3 = target main's target
---      button 4 = follow
+-- Focus:
+--      button 1 = focus target
+--      button 2 = main also acts as focus1
 -------------------------------------------------------------------
 
-	SetOffensiveTarget = { [[
-/click [dead][noexists][noharm] MultiBarBottomLeftButton1
-/startattack [harm]
+	Focus0 = { [[
+/click [combat,button:1] ClearFocus0
+/click [combat,button:2] ClearFocus0 RightButton
+/click [nocombat,button:1] SetFocus0
+/click [nocombat,button:2] SetFocus0 RightButton
 	]] },
 
-	SetHealingTarget = { [[
-/stopmacro [exists,help,nodead]
-/click MultiBarBottomLeftButton1 RightButton
+	Focus1 = { [[
+/click [combat] ClearFocus1; SetFocus1
 	]] },
 
-	TargetMain = { [[
-/click MultiBarBottomLeftButton1 Button3
+	Focus2 = { [[
+/click [combat] ClearFocus2; SetFocus2
 	]] },
 
-	FollowMain = { [[
-/click MultiBarBottomLeftButton1 Button4
+	Focus3 = { [[
+/click [combat] ClearFocus3; SetFocus3
 	]] },
 
-    -- Set raid icons to match alt focus
-	Focus0 = {
+	Focus4 = { [[
+/click [combat] ClearFocus4; SetFocus4
+	]] },
+
+	SetFocus0 = {
 		reset = { combat = true, ctrl = true }, [[
 /clearfocus [button:2]
 /focus [button:2] target
 /script SetRaidTarget('target', 1)
-/targetenemy
         ]], [[
 /script SetRaidTarget('target', 2)
-/targetenemy
         ]], [[
 /script SetRaidTarget('target', 3)
-/targetenemy
         ]], [[
 /script SetRaidTarget('target', 4)
-/targetenemy
         ]]
     },
 
-	Focus1 = {
+	SetFocus1 = {
 		reset = { combat = true, ctrl = true }, [[
 /clearfocus
-/click SetOffensiveTarget
+/click TargetMainTarget
 /focus target
+/cleartarget
         ]], "", "", ""
     },
 
-	Focus2 = {
+	SetFocus2 = {
 		reset = { combat = true, ctrl = true },
         "/clearfocus", [[
-/click SetOffensiveTarget
+/click TargetMainTarget
 /focus target
+/cleartarget
         ]], "", ""
     },
 
-	Focus3 = {
+	SetFocus3 = {
 		reset = { combat = true, ctrl = true },
         "/clearfocus",
         "", [[
-/click SetOffensiveTarget
-/clearfocus
+/click TargetMainTarget
 /focus target
+/cleartarget
         ]], ""
     },
 
-	Focus4 = {
+	SetFocus4 = {
 		reset = { combat = true, ctrl = true },
         "/clearfocus",
         "", "", [[
-/click SetOffensiveTarget
-/clearfocus
+/click TargetMainTarget
 /focus target
+/cleartarget
         ]]
     },
 
+	ClearFocus0 = {
+		reset = { combat = true, ctrl = true }, [[
+/clearfocus [button:2]
+/script SetRaidTarget('target', 0)
+        ]], [[
+/script SetRaidTarget('target', 0)
+        ]], [[
+/script SetRaidTarget('target', 0)
+        ]], [[
+/script SetRaidTarget('target', 0)
+        ]]
+    },
+
+	ClearFocus1 = {
+		reset = { combat = true, ctrl = true },
+        "/clearfocus", "", "", ""
+    },
+
+	ClearFocus2 = {
+		reset = { combat = true, ctrl = true },
+        "", "/clearfocus", "", ""
+    },
+
+	ClearFocus3 = {
+		reset = { combat = true, ctrl = true },
+        "", "", "/clearfocus", ""
+    },
+
+	ClearFocus4 = {
+		reset = { combat = true, ctrl = true },
+        "", "", "", "/clearfocus"
+    },
+    
 -------------------------------------------------------------------
 -- Druid
 -------------------------------------------------------------------
@@ -150,32 +176,41 @@ MacroSequence.sequences = {
 --/target Dark Iron Land Mine
 	Wrath = { [[
 /click SetOffensiveTarget
-/cast [modifier:ctrl] Wrath(Rank 1); Wrath
+/cast [mod:ctrl] Wrath(Rank 1); Wrath
 	]] },
     
 	Moonfire = { [[
 /click SetOffensiveTarget
-/cast [modifier:ctrl] Moonfire(Rank 1); Moonfire
+/cast [harm,nodead] Moonfire
 	]] },
     
 	HealingTouch = { [[
 /click SetHealingTarget
 /cast Healing Touch
-/targetlasttarget
 	]] },
 	
 	Rejuvenation = { [[
 /click SetHealingTarget
-/cast Rejuvenation
-/targetlasttarget
+/cast [help,nodead] Rejuvenation
 	]] },
 	
 	Regrowth = { [[
 /click SetHealingTarget
-/cast Regrowth
-/targetlasttarget
+/castsequence reset=21/target/ctrl Regrowth, Rejuvenation
 	]] },
 	
+	EntanglingRoots = { [[
+/stopmacro [target=focus,noexists][target=focus,dead][target=focus,noharm]
+/stopcasting
+/cast [target=focus] Entangling Roots
+	]] },
+
+	Hibernate = { [[
+/stopmacro [target=focus,noexists][target=focus,dead][target=focus,noharm]
+/stopcasting
+/cast [target=focus] Hibernate
+	]] },
+
 -------------------------------------------------------------------
 -- Mage
 -------------------------------------------------------------------
@@ -266,6 +301,12 @@ MacroSequence.sequences = {
 /cast Frost Shock
 	]] },
 	
+	WindShock = { [[
+/stopcasting
+/click SetOffensiveTarget
+/cast Wind Shock
+	]] },
+
 	ShockSequence1 = {
 		reset = { seconds = 6 },
 		"/click [button:1] EarthShock; /click [button:2] FrostShock", "", "", ""
@@ -342,6 +383,30 @@ MacroSequence.sequences = {
 	},
 	
 -------------------------------------------------------------------
+-- Warrior
+-------------------------------------------------------------------
+
+--
+--/stopcasting
+-- 
+	Charge = { [[
+/click SetOffensiveTarget
+/cast [nocombat,nostance:1] Battle Stance; [nostance:1] Bloodrage
+/castsequence [stance:1] reset=combat Charge, Rend, Bloodrage
+        ]] },
+
+	WarriorPull = { [[
+/click SetOffensiveTarget
+/cast [nocombat,nostance:2,equipped:shields] Defensive Stance
+/cast [nocombat,equipped:thrown] Throw; [nocombat] Shoot; Bloodrage
+        ]] },
+	
+	Block = { [[
+/click SetOffensiveTarget
+/cast [nostance:2] Defensive Stance; Shield Block
+        ]] },
+
+-------------------------------------------------------------------
 -- Racials
 -------------------------------------------------------------------
 
@@ -350,159 +415,4 @@ MacroSequence.sequences = {
 /cast Gift of the Naaru
 	]] },
 
--------------------------------------------------------------------
--- Leaders
--------------------------------------------------------------------
-
-	AssistBeada = { [[
-/assist [button:1] Beada
-/stopmacro [button:1]
-/target [button:2][button:3] Beada
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Beada
-	]] },
-
-	AssistBiza = { [[
-/assist [button:1] Biza
-/stopmacro [button:1]
-/target [button:2][button:3] Biza
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Biza
-	]] },
-
-	AssistBlenda = { [[
-/assist [button:1] Blenda
-/stopmacro [button:1]
-/target [button:2][button:3] Blenda
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Blenda
-	]] },
-
-	AssistByla = { [[
-/assist [button:1] Byla
-/stopmacro [button:1]
-/target [button:2][button:3] Byla
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Byla
-	]] },
-
-	AssistIaggo = { [[
-/assist [button:1] Iaggo
-/stopmacro [button:1]
-/target [button:2][button:3] Iaggo
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Iaggo
-	]] },
-
-	AssistKatator = { [[
-/assist [button:1] Katator
-/stopmacro [button:1]
-/target [button:2][button:3] Katator
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Katator
-	]] },
-
-	AssistKetator = { [[
-/assist [button:1] Ketator
-/stopmacro [button:1]
-/target [button:2][button:3] Ketator
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Ketator
-	]] },
-
-	AssistKitator = { [[
-/assist [button:1] Kitator
-/stopmacro [button:1]
-/target [button:2][button:3] Kitator
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Kitator
-	]] },
-
-	AssistKutator = { [[
-/assist [button:1] Kutator
-/stopmacro [button:1]
-/target [button:2][button:3] Kutator
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Kutator
-	]] },
-
-	AssistPawfoo = { [[
-/assist [button:1] Pawfoo
-/stopmacro [button:1]
-/target [button:2][button:3] Pawfoo
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Pawfoo
-	]] },
-
-	AssistPewmew = { [[
-/assist [button:1] Pewmew
-/stopmacro [button:1]
-/target [button:2][button:3] Pewmew
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Pewmew
-	]] },
-
-	AssistPieforu = { [[
-/assist [button:1] Pieforu
-/stopmacro [button:1]
-/target [button:2][button:3] Pieforu
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Pieforu
-	]] },
-
-	AssistPumu = { [[
-/assist [button:1] Pumu
-/stopmacro [button:1]
-/target [button:2][button:3] Pumu
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Pumu
-	]] },
-
-	AssistXalo = { [[
-/assist [button:1] Xalo
-/stopmacro [button:1]
-/target [button:2][button:3] Xalo
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Xalo
-	]] },
-
-	AssistXiloh = { [[
-/assist [button:1] Xiloh
-/stopmacro [button:1]
-/target [button:2][button:3] Xiloh
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Xiloh
-	]] },
-
-	AssistXulo = { [[
-/assist [button:1] Xulo
-/stopmacro [button:1]
-/target [button:2][button:3] Xulo
-/target [target=targettarget,button:2,help,nodead]
-/stopmacro [button:2][button:3]
-/follow Xulo
-	]] }
-
 }
-
--------------------------------------------------------------------
--- Bindings
--------------------------------------------------------------------
-
---SetBindingClick("CTRL-I", "Invite")
---SetBindingClick("F", "BongosActionButton61")
