@@ -1,9 +1,11 @@
-#summary One-sentence summary of this page.
+#summary World of Warcraft addon for painless multibox targeting
 #labels Featured
 
 = Introduction =
 
 ActionBarTargeting is an addon that automatically creates targeting macros for a multibox team of characters. These macros are bound to buttons that can be /click'ed to do the appropriate actions.
+
+= Setup =
 
 == How It Works ==
 
@@ -11,5 +13,3 @@ The original idea for a targeting system based on action bars was proposed by Ma
 
 == Limitations ==
 * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged attack bars on a hunter.
-
-= Setup =
