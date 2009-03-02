@@ -46,7 +46,7 @@ ActionBarTargeting creates the following macros/buttons:
     * TargetMainTarget: Clone to targets your main's target.
     * FollowMain: Clone follows your main.
 To see the macro code type `/abt print` in game.
-    
+
 == Advantages ==
 
     * Focus-free targeting and follow.
