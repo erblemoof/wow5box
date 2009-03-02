@@ -85,9 +85,11 @@ only extra manual step over a focus-based system is defining your teams with Mul
 
 == Setup ==
 
-    # Install the companion addon MultiboxRoster and follow the instructions to define your team(s).
-    # For each of your offensive spells, create a macro like this:
-    This will tell your follower shaman to target
-
-
-
+    # Install the companion addon MultiboxRoster and follow the instructions to define your team(s)
+    # For each of your offensive spells, create a macro that starts with `\click SetOffensiveTarget`
+    # For each of your healing spells, create a macro that starts with `\click SetHealingTarget`
+    # Bind keys to actionbar pages 1-5. (I use F1-F5.)
+    # Bind a key to `FollowMain`. (WoW keybindings menu)
+    # Bind a key to `TargetMainTarget` if you want. (Helpful as an override to sticky targeting.)
+    
+That's it!
