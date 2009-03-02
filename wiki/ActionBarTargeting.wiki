@@ -79,10 +79,8 @@ only extra manual step over a focus-based system is defining your teams with Mul
 
 == Limitations ==
 
-    * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged
-    attack bars on a hunter.
-    * Macros are not easily customizable. If you're not happy with mine your only recourse is to edit the definitions in
-    `ActionBarTargeting.lua`. I know this sucks -- I'm working on something better.
+    * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged attack bars on a hunter.
+    * Macros are not easily customizable. If you're not happy with mine your only recourse is to edit the definitions in `ActionBarTargeting.lua`. I know this sucks -- I'm working on something better.
     * Max of 6 possible mains since that is the max number of possible action bar pages.
 
 == Setup ==
