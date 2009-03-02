@@ -38,25 +38,26 @@ them to a group or raid.
 
 == List of Macros ==
 
+ActionBarTargeting
+ * SetOffensiveTarget: Instructs a clone to assist your main.
+ * SetHealingTarget: Clone targets your main's target (if friendly) or else your main.
+ * TargetMain: Clone to targets your main.
+ * TargetMainTarget: Clone to targets your main's target.
+ * FollowMain: Clone follows your main.
 
-
-    * SetOffensiveTarget: Instructs a clone to assist your main.
-    * SetHealingTarget: Clone targets your main's target (if friendly) or else your main.
-    * TargetMain: Clone to targets your main.
-    * TargetMainTarget: Clone to targets your main's target.
-    * FollowMain: Clone follows your main.
-
+To see the macro code type `/abt print` in-game.
+    
 == Advantages ==
 
-    * Focus-free targeting and follow.
-    * Automatically recognizes the active team (using MultiboxRoster) and updates macros accordingly.
-    * Works fine in battlegrounds, even if your toons wind up in different groups.
-    * One button selection of main, even in combat, using actionbar page keybinds.
+ * Focus-free targeting and follow.
+ * Automatically recognizes the active team (using MultiboxRoster) and updates macros accordingly.
+ * Works fine in battlegrounds, even if your toons wind up in different groups.
+ * One button selection of main, even in combat, using actionbar page keybinds.
 
 == Limitations ==
 
-    * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged attack bars on a hunter.
-    * Macros are not easily customizable yet. If you're not happy with mine your only recourse is to edit the definitions in `ActionBarTargeting.lua`. (I know this sucks -- I'm working on it.)
+ * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged attack bars on a hunter.
+ * Macros are not easily customizable yet. If you're not happy with mine your only recourse is to edit the definitions in `ActionBarTargeting.lua`. (I know this sucks -- I'm working on it.)
 
 = Setup =
 
