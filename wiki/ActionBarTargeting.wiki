@@ -1,20 +1,30 @@
-#summary World of Warcraft addon for painless, focus-free multibox targeting
+#summary World of Warcraft addon for painless, focus-free multibox targeting and follow
 #labels Featured
 
 = Introduction =
 
-ActionBarTargeting is a WoW addon that automatically creates targeting macros for a multibox team of characters. The targeting system is based on action bar pages, not focus, so focus is kept free for defining crowd control targets. Targeting macros are bound to invisible buttons that can be /click'ed to do the appropriate actions. Once you define your teams (using the companion addon MultiboxRoster), ActionBarTargeting automatically recognizes which team is currently active and updates your macros. Switching teams is as easy as logging in on the new characters and adding them to a group or raid.
+ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of
+characters. The targeting system is based on the [http://www.wowwiki.com/Making_a_macro#Complete_list actionbar]
+conditional, not focus, so focus is kept free for defining crowd control targets. Targeting macros are bound to
+invisible buttons that can be /click'ed to do the appropriate actions. Once you define your teams (using the
+companion addon MultiboxRoster), ActionBarTargeting automatically recognizes which team is currently active and
+updates your macros. Switching teams is as easy as logging in on the new characters and adding them to a group
+or raid.
 
 == List of Macros ==
 
 
-    * `SetOffensiveTarget`: Instructs a clone to assist your main.
-    * `SetHealingTarget`: Clone targets your main's target (if friendly) or else your main.
-    * `TargetMain`: Clone to targets your main.
-    * `TargetMainTarget`: Clone to targets your main's target.
-    * `FollowMain`: Clone follows your main.
+
+    * SetOffensiveTarget: Instructs a clone to assist your main.
+    * SetHealingTarget: Clone targets your main's target (if friendly) or else your main.
+    * TargetMain: Clone to targets your main.
+    * TargetMainTarget: Clone to targets your main's target.
+    * FollowMain: Clone follows your main.
 
 == Advantages ==
+
+    * Focus-free targeting and follow
+    * Automatically 
 
 == Limitations ==
 
@@ -29,7 +39,7 @@ ActionBarTargeting is a WoW addon that automatically creates targeting macros fo
         /click SetOffensiveTarget
         /cast Lightning Bolt
         }}}
-        This will instruct your follower shaman to target
+    This will tell your follower shaman to target
 
 = How It Works =
 
