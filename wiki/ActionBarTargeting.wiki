@@ -1,7 +1,7 @@
 #summary World of Warcraft addon for painless, focus-free multibox targeting and follow
 #labels Featured
 
-= Introduction =
+== Introduction ==
 
 ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of
 characters. The targeting system is based on the [http://www.wowwiki.com/Making_a_macro#Complete_list actionbar]
@@ -59,7 +59,7 @@ targeting). To switch roles and make Ketator the main just hit the key to switch
 The macros for the other ActionBarTargeting buttons work along similar lines. To see the generated code for all
 buttons use the command `/abt print` in game.
 
-== Why Is This Goodness? ==
+== Advantages ==
 
 The original idea for a targeting system based on actionbar pages was proposed by Maqz
 [http://www.dual-boxing.com/forums/index.php?page=Thread&threadID=4605&s=738cc98ae8e3b100b9f71057105c44a1e43497f1 here].
