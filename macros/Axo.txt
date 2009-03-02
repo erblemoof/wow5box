@@ -1,0 +1,28 @@
+MACRO 16777217 "Invite" Ability_Creature_Cursed_04
+/invite Skeletoor
+/invite Xalo
+/invite Xiloh
+/invite Xulo
+END
+MACRO 16777218 "Judge" INV_Misc_QuestionMark
+#showtooltip
+/click SetOffensiveTarget
+/cast [nomodifier] Judgement of Justice; [modifier:ctrl] Judgement of Light; Judgement of Wisdom
+END
+MACRO 16777220 "Light" INV_Misc_QuestionMark
+#showtooltip
+/stopmacro [noharm]
+/startattack
+/castsequence reset=target/ctrl Seal of Light, Judgement of Light
+END
+MACRO 16777315 "Skeletoor" Spell_Nature_BloodLust
+/click [button:1] AssistSkeletoor
+/click [button:2] AssistSkeletoor RightButton
+/click [button:3] AssistSkeletoor MiddleButton
+/click [button:4] AssistSkeletoor Button4
+END
+MACRO 16777219 "Taunt" INV_Misc_QuestionMark
+#showtooltip [help] Righteous Defense; Hand of Reckoning
+/click SetOffensiveTarget
+/cast [target=mouseover,exists,help] [help] Righteous Defense; [target=mouseover,exists,harm] [harm] Hand of Reckoning
+END

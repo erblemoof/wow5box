@@ -4,43 +4,11 @@ END
 MACRO 1 "BB" Ability_Creature_Poison_05
 /click BigButton
 END
-MACRO 9 "Iaggo" Spell_Holy_EmpowerChampion
-/click [button:1] AssistIaggo
-/click [button:2] AssistIaggo RightButton
-/click [button:3] AssistIaggo MiddleButton
-/click [button:4] AssistIaggo Button4
+MACRO 300 "Druids" Ability_SearingArrow
+/run ABT_CreateAllButtons({ "Crockpot", "Pawfoo", "Pewmew", "Pieforu", "Pumu" })
 END
-MACRO 3 "Invite" Spell_Magic_LesserInvisibilty
-/click Invite
-END
-MACRO 10 "Katator" Spell_Nature_BloodLust
-/click [button:1] AssistKatator
-/click [button:2] AssistKatator RightButton
-/click [button:3] AssistKatator MiddleButton
-/click [button:4] AssistKatator Button4
-END
-MACRO 11 "Ketator" Spell_Nature_BloodLust
-/click [button:1] AssistKetator
-/click [button:2] AssistKetator RightButton
-/click [button:3] AssistKetator MiddleButton
-/click [button:4] AssistKetator Button4
-END
-MACRO 12 "Kitator" Spell_Nature_BloodLust
-/click [button:1] AssistKitator
-/click [button:2] AssistKitator RightButton
-/click [button:3] AssistKitator MiddleButton
-/click [button:4] AssistKitator Button4
-END
-MACRO 13 "Kutator" Spell_Nature_BloodLust
-/click [button:1] AssistKutator
-/click [button:2] AssistKutator RightButton
-/click [button:3] AssistKutator MiddleButton
-/click [button:4] AssistKutator Button4
-END
-MACRO 21 "LOD" Ability_Creature_Disease_05
-/click [button:1] LodLow
-/click [button:2] LodMedium
-/click [button:3] LodHigh
+MACRO 35 "Fmt" Ability_Creature_Poison_04
+/click ForceMainTarget
 END
 MACRO 31 "Focus1" Spell_Holy_Crusade
 /click Focus1
@@ -53,4 +21,15 @@ MACRO 33 "Focus3" Spell_Holy_Crusade
 END
 MACRO 34 "Focus4" Spell_Holy_Crusade
 /click Focus4
+END
+MACRO 3 "Invite" Spell_Magic_LesserInvisibilty
+/click Invite
+END
+MACRO 21 "LOD" Ability_Creature_Disease_05
+/click [button:1] LodLow
+/click [button:2] LodMedium
+/click [button:3] LodHigh
+END
+MACRO 301 "Mages" Ability_SearingArrow
+/run ABT_CreateAllButtons({ "Axo", "Xalo", "Xilo", "Xulo", "Skeletoor" })
 END

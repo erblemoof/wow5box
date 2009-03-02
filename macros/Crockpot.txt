@@ -1,0 +1,69 @@
+MACRO 16782217 "AoE" INV_Misc_QuestionMark
+#showtooltip
+/castsequence reset=combat Thunder Clap, Demoralizing Shout, Cleave, Thunder Clap, Cleave, Thunder Clap, Cleave
+END
+MACRO 16778216 "BattleStance" INV_Misc_QuestionMark
+#showtooltip
+/click SetOffensiveTarget
+/cast [stance:2/3] Battle Stance; Defensive Stance
+END
+MACRO 16782216 "Block" INV_Misc_QuestionMark
+#showtooltip Shield Block
+/click Block
+END
+MACRO 16777222 "CC" INV_Misc_QuestionMark
+#showtooltip
+/click SetOffensiveTarget
+/cast [nomod,stance:1/2,equipped:shield] Shield Bash; [stance:2] Disarm
+END
+MACRO 16778218 "Charge" INV_Misc_QuestionMark
+#showtooltip
+/click SetOffensiveTarget
+/cast [nocombat,nostance:1] Battle Stance; [nostance:1] Bloodrage
+/castsequence [stance:1] reset=combat Charge, Rend, Bloodrage
+END
+MACRO 16777220 "HS" INV_Misc_QuestionMark
+#showtooltip
+/console Sound_EnableSFX 0
+/cast Heroic Strike
+/use 13
+/use 14
+/cast [stance:1] Overpower; [stance:2] Revenge
+/console Sound_EnableSFX 1
+/script UIErrorsFrame:Clear();
+END
+MACRO 16777217 "Invite" Ability_Rogue_SurpriseAttack
+/invite Pawfoo
+/invite Pewmew
+/invite Pieforu
+/invite Pumu
+END
+MACRO 16777221 "OPoR" INV_Misc_QuestionMark
+#showtooltip
+/click SetOffensiveTarget
+/cast [stance:2] Heroic Strike
+/cast [stance:1] Overpower; [stance:2] Revenge
+END
+MACRO 16777219 "Pull" INV_Misc_QuestionMark
+#showtooltip [equipped:thrown] Throw; Shoot
+/click WarriorPull
+END
+MACRO 16777218 "Spam" Spell_Misc_Food
+#showtooltip
+/console Sound_EnableSFX 0
+/click SetOffensiveTarget
+/cast [stance:1] Overpower; [stance:2] Revenge
+/console Sound_EnableSFX 1
+/script UIErrorsFrame:Clear();
+END
+MACRO 16778217 "Sunder" INV_Misc_QuestionMark
+#showtooltip
+/click SetOffensiveTarget
+/cast [target=mouseover,harm,nodead][] Sunder Armor
+END
+MACRO 16777224 "Taunt" INV_Misc_QuestionMark
+#showtooltip
+/click SetOffensiveTarget
+/cast [target=mouseover,harm,nodead][target=mouseovertarget,help,nodead][target=targettarget,harm,nodead][] Taunt
+/cast [target=mouseover,harm,nodead][target=mouseovertarget,help,nodead][target=targettarget,harm,node
+END

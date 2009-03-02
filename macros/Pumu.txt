@@ -1,3 +1,11 @@
+MACRO 16777418 "CC" INV_Misc_QuestionMark
+#showtooltip [nomod] Entangling Roots; Hibernate
+/click [nomod] EntanglingRoots; Hibernate
+END
+MACRO 16777419 "Hibernate" INV_Misc_QuestionMark
+#showtooltip Hibernate
+/click Hibernate
+END
 MACRO 16777321 "HT" INV_Misc_QuestionMark
 #show Healing Touch
 /click HealingTouch
@@ -6,30 +14,6 @@ MACRO 16777322 "MF" INV_Misc_QuestionMark
 #show Moonfire
 /click Moonfire
 END
-MACRO 16777316 "Pawfoo" Spell_Nature_BloodLust
-/click [button:1] AssistPawfoo
-/click [button:2] AssistPawfoo RightButton
-/click [button:3] AssistPawfoo MiddleButton
-/click [button:4] AssistPawfoo Button4
-END
-MACRO 16777317 "Pewmew" Spell_Nature_BloodLust
-/click [button:1] AssistPewmew
-/click [button:2] AssistPewmew RightButton
-/click [button:3] AssistPewmew MiddleButton
-/click [button:4] AssistPewmew Button4
-END
-MACRO 16777318 "Pieforu" Spell_Nature_BloodLust
-/click [button:1] AssistPieforu
-/click [button:2] AssistPieforu RightButton
-/click [button:3] AssistPieforu MiddleButton
-/click [button:4] AssistPieforu Button4
-END
-MACRO 16777319 "Pumu" Spell_Nature_BloodLust
-/click [button:1] AssistPumu
-/click [button:2] AssistPumu RightButton
-/click [button:3] AssistPumu MiddleButton
-/click [button:4] AssistPumu Button4
-END
 MACRO 16777417 "Regrowth" INV_Misc_QuestionMark
 #show Regrowth
 /click Regrowth
@@ -37,6 +21,10 @@ END
 MACRO 16777416 "Rejuv" INV_Misc_QuestionMark
 #show Rejuvenation
 /click Rejuvenation
+END
+MACRO 16778216 "TargetMainImpl" INV_Misc_QuestionMark
+#show [bar:1] Ability_Warrior_Charge; Ability_Druid_Maul
+/targetexact [bar:1] Crockpot; [bar:2] Pawfoo; [bar:3] Pewmew; [bar:4] Pieforu; [bar:5] Pumu
 END
 MACRO 16777320 "Wrath" INV_Misc_QuestionMark
 #show Wrath
