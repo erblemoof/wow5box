@@ -58,7 +58,7 @@ On shaman 2 though, `SetOffensiveTarget` looks like this:
 /assist [bar:1] Toon1; [bar:3] Toon3
 }}}
 
-Now Toon2 will attack Toon1's target, unless he already has a living, hostile target of his own (sticky
+(Note: `bar` is a short form for the `actionbar` conditional.) Now Toon2 will attack Toon1's target, unless he already has a living, hostile target of his own (sticky
 targeting). To switch roles and make Toon2 the main just hit the key to switch to actionbar page 2.
 
 The macros for the other ActionBarTargeting buttons work along similar lines. To see the generated code for all
