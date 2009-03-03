@@ -32,6 +32,7 @@ ActionBarTargeting creates the following macros/buttons:
     * `TargetMain`: Clone targets your main.
     * `TargetMainTarget`: Clone targets your main's target.
     * `FollowMain`: Clone follows your main.
+    * `TargetToon{1-n}`: Targets characters 1-n in your team, irrespective of party position.
 The macro for each button is slightly different for each character in a team. For example, take a team of 3 shamans:
 Katator, Ketator and Kitator. Each shaman uses the Lightning Bolt macro shown above for their primary nuke. On shaman 1
 (Katator) `SetOffensiveTarget` looks like this:
@@ -63,25 +64,22 @@ buttons use the command `/abt print` in game.
 
 The original idea for a targeting system based on actionbar pages was proposed by Maqz
 [http://www.dual-boxing.com/forums/index.php?page=Thread&threadID=4605&s=738cc98ae8e3b100b9f71057105c44a1e43497f1 here].
-The advantages of such a system are:
+The advantages are:
 
     * Focus-free targeting and follow.
     * Works fine in battlegrounds, even if your toons wind up in different groups.
     * One-button selection of main, even in combat, using actionbar page keybinds.
 
-To the best of my knowledge only a few multiboxers have adopted it though,
-probably because the macros and bar setup required are pretty complex. This only gets worse if you are trying
-to manage more than one team, which is what led me to an automated approach.
-
-This addon captures the same fundemental virtues, but eliminates almost all of the complexity and hassle. The
-only extra manual step over a focus-based system is defining your teams with MultiboxRoster, and that's like
-30 sec with a text editor.
+To the best of my knowledge only a few multiboxers have adopted his system though, probably because the macros and bar
+setup required are pretty complex. This only gets worse if you are trying to manage more than one team, which is what
+led me to an automated approach. With this addon the only extra manual step over a focus-based system is defining your
+teams with MultiboxRoster, and that's like 30 sec with a text editor.
 
 == Limitations ==
 
     * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged attack bars on a hunter.
     * Macros are not easily customizable. If you're not happy with mine your only recourse is to edit the definitions in `ActionBarTargeting.lua`. I know this sucks -- I'm working on something better.
-    * Max of 6 possible mains since that is the max number of possible action bar pages. Sorry 25-boxers! :)
+    * Max of 6 possible mains since that is the max number of possible action bar pages.
 
 == Setup ==
 
