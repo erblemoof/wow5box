@@ -1,6 +1,8 @@
 #summary World of Warcraft addon for defining teams of multibox characters
 #labels Featured
 
+Downloads: http://code.google.com/p/wow5box/downloads/list
+
 == Introduction ==
 
 MultiboxRoster is a WoW addon that lets you define teams of multibox characters. The mechanism for this is pretty
