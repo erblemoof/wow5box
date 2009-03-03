@@ -1,6 +1,8 @@
 #summary World of Warcraft addon for painless, focus-free multibox targeting and follow
 #labels Featured
 
+Downloads: http://code.google.com/p/wow5box/downloads/list
+
 == Introduction ==
 
 ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of
