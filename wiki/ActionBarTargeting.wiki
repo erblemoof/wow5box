@@ -26,7 +26,8 @@ or raid. ActionBarTargeting will automatically recognize the new team and update
 
 To switch mains, just use whatever key your have bound to actionbar pages 1-5. For me this is F1-F5, but you can define
 whatever keys you like using the standard WoW keybinds UI. You can use this mechanism to switch mains at any time,
-including in combat. You can even change the active actionbar page, and thus your main, in a macro using `/changeactionbar`.
+including in combat. You can even switch mains in a macro using [http://www.wowwiki.com/MACRO_changeactionbar
+`/changeactionbar`].
 
 == How It Works ==
 
