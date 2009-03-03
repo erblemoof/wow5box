@@ -3,6 +3,8 @@
 
 Downloads: http://code.google.com/p/wow5box/downloads/list
 
+Discussion Thread: [http://www.dual-boxing.com/forums/index.php?page=Thread&postID=182715#post182715 dual-boxing.com]
+
 == Introduction ==
 
 ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of
@@ -18,8 +20,8 @@ target your main's target before casting a Lightning Bolt:
 /cast Lightning Bolt
 }}}
 
-Team membership is defined using the companion addon MultiboxRoster, which recognizes team changes and notifies
-ActionBarTargeting. Switching teams is as easy as logging on with the new characters and adding them to a party
+Team membership is defined using the companion addon MultiboxRoster, which recognizes team changes and fires an event.
+Switching teams is as easy as logging on with the new characters and adding them to a party
 or raid. ActionBarTargeting will automatically recognize the new team and update your targeting and follow commands.
 
 To switch mains, just use whatever key your have bound to actionbar pages 1-5. For me this is F1-F5, but you can define
