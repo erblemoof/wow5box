@@ -48,7 +48,7 @@ Toon1, Toon2 and Toon3. Each shaman uses the Lightning Bolt macro shown above fo
 }}}
 
 With the current actionbar page set to 1, Toon1 is the main, so all this macro does is start his auto-attack. He he will
-cast his lightning bolt as usual, at whatever he has targeted.
+cast his lightning bolt as usual, at whatever he has targeted. (Note: `bar` is a short form for the `actionbar` conditional.)
 
 On shaman 2 though, `SetOffensiveTarget` looks like this:
 
@@ -58,7 +58,7 @@ On shaman 2 though, `SetOffensiveTarget` looks like this:
 /assist [bar:1] Toon1; [bar:3] Toon3
 }}}
 
-(Note: `bar` is a short form for the `actionbar` conditional.) Now Toon2 will attack Toon1's target, unless he already has a living, hostile target of his own (sticky
+Now Toon2 will attack Toon1's target, unless he already has a living, hostile target of his own (sticky
 targeting). To switch roles and make Toon2 the main just hit the key to switch to actionbar page 2.
 
 The macros for the other ActionBarTargeting buttons work along similar lines. To see the generated code for all
