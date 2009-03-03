@@ -2,13 +2,50 @@
 <WowConfig>
   <StartCommand fileName="WoW.exe" args="-windowed" />
   <GameInstances>
-    <Game id="wow6" folder="c:\wow6" monitor="1" left="0" top="0" width="1000" height="620" />
-    <Game id="wow7" folder="c:\wow7" monitor="1" left="0" top="620" width="1000" height="620" />
+    <Game id="wow1" folder="c:\wow1" monitor="0" left="0" top="0" width="2560" height="1600" />
+    <Game id="wow2" folder="c:\wow2" monitor="2" left="200" top="0" width="1000" height="620" />
+    <Game id="wow3" folder="c:\wow3" monitor="2" left="200" top="620" width="1000" height="620" />
+    <Game id="wow4" folder="c:\wow4" monitor="1" left="0" top="0" width="1000" height="620" />
+    <Game id="wow5" folder="c:\wow5" monitor="1" left="0" top="620" width="1000" height="620" />
   </GameInstances>
   <Teams>
+    <Team id="shamans">
+      <Toon name="Iaggo" account="JamieEi1" />
+      <Toon name="Katator" account="JamieEi" />
+      <Toon name="Ketator" account="JamieEi2" />
+      <Toon name="Kitator" account="JamieEi3" />
+      <Toon name="Kutator" account="JamieEi4" />
+    </Team>
     <Team id="mages">
       <Toon name="Axo" account="JamieEi" />
       <Toon name="Xalo" account="JamieEi2" />
+      <Toon name="Xiloh" account="JamieEi3" />
+      <Toon name="Xulo" account="JamieEi4" />
+      <Toon name="Skeletoor" account="JamieEi1" />
+    </Team>
+    <Team id="druids">
+      <Toon name="Crockpot" account="JamieEi" />
+      <Toon name="Pawfoo" account="JamieEi1" />
+      <Toon name="Pewmew" account="JamieEi2" />
+      <Toon name="Pieforu" account="JamieEi3" />
+      <Toon name="Pumu" account="JamieEi4" />
+    </Team>
+    <Team id="magesonly">
+      <Toon name="Xalo" account="JamieEi2" />
+      <Toon name="Xiloh" account="JamieEi3" />
+      <Toon name="Xulo" account="JamieEi4" />
+    </Team>
+    <Team id="magesham">
+      <Toon name="Skeletoor" account="JamieEi1" />
+      <Toon name="Xalo" account="JamieEi2" />
+      <Toon name="Xiloh" account="JamieEi3" />
+      <Toon name="Xulo" account="JamieEi4" />
+    </Team>
+    <Team id="rogues">
+      <Toon name="Beada" account="JamieEi1" />
+      <Toon name="Biza" account="JamieEi2" />
+      <Toon name="Blenda" account="JamieEi3" />
+      <Toon name="Byla" account="JamieEi4" />
     </Team>
   </Teams>
 </WowConfig>
