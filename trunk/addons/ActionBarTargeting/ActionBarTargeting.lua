@@ -214,6 +214,11 @@ function ABT:CreateAllButtons(team, name)
     ABT:CreateButton("TargetMainTarget", ABT:CreateTargetMainTargetMacro(team, toonIndex))
     ABT:CreateButton("FollowMain", ABT:CreateFollowMacro(team, toonIndex))
     
+    -- Macros to target each toon
+    for i,v in ipairs(team) do
+        ABT:CreateButton("TargetToon" .. i, "/targetexact " .. v)
+    end
+    
     name = name or "unknown"
     self:Print("Buttons created for team " .. name .. " - " .. tconcat(team, ", "))
 end
