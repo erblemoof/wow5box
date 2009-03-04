@@ -159,6 +159,7 @@ EndSpreadBox()
 
 pidStr = %1%
 password = %2%
+hardPause = 0           ; pause key pressed
 
 ; Get WoW process IDs from input params
 nPids = 0
@@ -183,12 +184,33 @@ Loop, %nPids%
 #IfWinActive, ahk_group wowGroup
 
 ;-------------------------------------
-; Special Functions
+; Suspend
 ;-------------------------------------
 
-Pause::Suspend, Toggle
-~/::Suspend, On
-~Enter::Suspend, Off
+Pause::
+Suspend, Toggle                         ; Suspend must be on the 1st line of the script
+hardPause := Mod(++hardPause, 2)        ; Can a brother get a NOT?
+Return
+
+~/::
+Suspend, Permit                         ; Marks the current subroutine exempt from suspension
+if hardPause <= 0
+{
+    Suspend, On
+}
+Return
+
+~Enter::
+Suspend, Permit                         ; Marks the current subroutine exempt from suspension
+if hardPause <= 0
+{
+    Suspend, Off
+}
+Return
+
+;-------------------------------------
+; Special Functions
+;-------------------------------------
 
 #r::
 Suspend, On
@@ -251,20 +273,20 @@ End Up::EndSpreadBox()
 ~*,::SendAll("{, down}{, up}")
 ~*.::SendAll("{. down}{. up}")
 
-~F1::SendAll("{F1 down}{F1 up}")
-~F2::SendAll("{F2 down}{F2 up}")
-~F3::SendAll("{F3 down}{F3 up}")
-~F4::SendAll("{F4 down}{F4 up}")
-~F5::SendAll("{F5 down}{F5 up}")
-~F6::SendAll("{F6 down}{F6 up}")
-~F7::SendAll("{F7 down}{F7 up}")
-~F8::SendAll("{F8 down}{F8 up}")
-~F9::SendAll("{F9 down}{F9 up}")
-~F10::SendAll("{F10 down}{F10 up}")
-~F11::SendAll("{F11 down}{F11 up}")
-~F12::SendAll("{F12 down}{F12 up}")
+~*F1::SendAll("{F1 down}{F1 up}")
+~*F2::SendAll("{F2 down}{F2 up}")
+~*F3::SendAll("{F3 down}{F3 up}")
+~*F4::SendAll("{F4 down}{F4 up}")
+~*F5::SendAll("{F5 down}{F5 up}")
+~*F6::SendAll("{F6 down}{F6 up}")
+~*F7::SendAll("{F7 down}{F7 up}")
+~*F8::SendAll("{F8 down}{F8 up}")
+~*F9::SendAll("{F9 down}{F9 up}")
+~*F10::SendAll("{F10 down}{F10 up}")
+~*F11::SendAll("{F11 down}{F11 up}")
+~*F12::SendAll("{F12 down}{F12 up}")
 
-~F::SendAll("{F down}{F up}")
+;~F::SendAll("{F down}{F up}")
 
 ~*Numpad1::SendAll("{Numpad1 down}{Numpad1 up}")
 ~*Numpad2::SendAll("{Numpad2 down}{Numpad2 up}")
@@ -279,11 +301,11 @@ End Up::EndSpreadBox()
 ; Shift (+) + Hotkey
 ;-------------------------------------
 
-~+F1::SendAll("{Shift down}{F1 down}{F1 up}{Shift up}")
-~+F2::SendAll("{Shift down}{F2 down}{F2 up}{Shift up}")
-~+F3::SendAll("{Shift down}{F3 down}{F3 up}{Shift up}")
-~+F4::SendAll("{Shift down}{F4 down}{F4 up}{Shift up}")
-~+F5::SendAll("{Shift down}{F5 down}{F5 up}{Shift up}")
+;~+F1::SendAll("{Shift down}{F1 down}{F1 up}{Shift up}")
+;~+F2::SendAll("{Shift down}{F2 down}{F2 up}{Shift up}")
+;~+F3::SendAll("{Shift down}{F3 down}{F3 up}{Shift up}")
+;~+F4::SendAll("{Shift down}{F4 down}{F4 up}{Shift up}")
+;~+F5::SendAll("{Shift down}{F5 down}{F5 up}{Shift up}")
 
 ;-------------------------------------
 ; Modifiers
@@ -292,11 +314,8 @@ End Up::EndSpreadBox()
 Control::ForceAll("{Control down}")
 Control Up::ForceAll("{Control up}")
 
-Alt::ForceAll("{Alt down}")
-Alt Up::ForceAll("{Alt up}")
-
-Shift::ForceAll("{Shift down}")
-Shift Up::ForceAll("{Shift up}")
+;Alt::ForceAll("{Alt down}")
+;Alt Up::ForceAll("{Alt up}")
 
 ;**************************************************************************************************
 ; GUI
