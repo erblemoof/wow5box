@@ -109,40 +109,40 @@ That's it!
 
 Here are all the macros that get generated for Toon1 / actionbar page 1:
 
-=== SetOffensiveTarget ===
+*SetOffensiveTarget*
 {{{
 /startattack
 /stopmacro [exists,harm,nodead]
 /assist [bar:2] Toon2; [bar:3] Toon3; [bar:6, target=focus]
 }}}
 
-=== SetHealingTarget ===
+*SetHealingTarget*
 {{{
 /click FollowersTargetMain
 /target [nobar:1,help,nodead] targettarget
 }}}
 
-=== FollowersTargetMain ===
+*FollowersTargetMain*
 {{{
 /targetexact [bar:2] Toon2; [bar:3] Toon3
 /target [bar:6, target=focus]
 }}}
 
-=== TargetMainTarget ===
+*TargetMainTarget*
 {{{
 /stopmacro [bar:1]
 /click FollowersTargetMain
 /target targettarget
 }}}
 
-=== FollowMain ===
+*FollowMain*
 {{{
 /stopmacro [bar:1]
 /click FollowersTargetMain
 /follow
 }}}
 
-=== TargetToon ===
+*TargetToon*
 {{{
 /targetexact Toon1
 }}}
