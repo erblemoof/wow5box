@@ -4,6 +4,10 @@ Downloads: http://code.google.com/p/wow5box/downloads/list
 
 Discussion Thread: [http://www.dual-boxing.com/forums/index.php?page=Thread&postID=182715#post182715 dual-boxing.com]
 
+== Updates ==
+
+    * 3/4/09 (v0.3): Added focus as main on actionbar page 6
+
 == Introduction ==
 
 ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of

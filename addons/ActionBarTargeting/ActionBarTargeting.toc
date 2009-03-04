@@ -2,7 +2,7 @@
 ## Title: ActionBarTargeting
 ## Notes: Multibox targeting using [actionbar:#]
 ## Author: Chorizotarian
-## Version: 0.2
+## Version: 0.3
 ## X-Category: Miscellaneous, Multiboxing
 ## SavedVariables:
 ## OptionalDeps: Ace3

@@ -30,18 +30,12 @@ end
 -- Tests
 -----------------------------------------------------------------------
 
-function AbtTests:test_CreateMacro()
-    assertEquals(ABT:CreateMacro(), "")
-    assertEquals(ABT:CreateMacro(""), "")
-    assertEquals(ABT:CreateMacro("", nil), "")
+function AbtTests:test_JoinLines()
+    assertEquals(ABT:JoinLines(), "")
+    assertEquals(ABT:JoinLines(""), "")
 
-    assertEquals(ABT:CreateMacro("abc"), "abc")
-    assertEquals(ABT:CreateMacro("abc", "def"), "abcdef")
-    assertEquals(ABT:CreateMacro(1, 2), "12")
-    assertEquals(ABT:CreateMacro("the value is: ", 12), "the value is: 12")
-    
-    assertEquals(ABT:CreateMacro(function() return "abc" end), "abc")
-    assertEquals(ABT:CreateMacro("/target party", function() return 1 end), "/target party1")
+    assertEquals(ABT:JoinLines("abc"), "abc")
+    assertEquals(ABT:JoinLines("abc", "def"), "abc\ndef")
 end
 
 function AbtTests:test_MaxBar()
