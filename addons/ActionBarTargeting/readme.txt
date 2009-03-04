@@ -1,5 +1,9 @@
 #summary World of Warcraft addon for painless, focus-free multibox targeting and follow
 
+Downloads: http://code.google.com/p/wow5box/downloads/list
+
+Discussion Thread: [http://www.dual-boxing.com/forums/index.php?page=Thread&postID=182715#post182715 dual-boxing.com]
+
 == Introduction ==
 
 ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of
@@ -15,13 +19,14 @@ target your main's target before casting a Lightning Bolt:
 /cast Lightning Bolt
 }}}
 
-Team membership is defined using the companion addon MultiboxRoster, which recognizes team changes and notifies
-ActionBarTargeting. Switching teams is as easy as logging on with the new characters and adding them to a party
+Team membership is defined using the companion addon MultiboxRoster, which recognizes team changes and fires an event.
+Switching teams is as easy as logging on with the new characters and adding them to a party
 or raid. ActionBarTargeting will automatically recognize the new team and update your targeting and follow commands.
 
 To switch mains, just use whatever key your have bound to actionbar pages 1-5. For me this is F1-F5, but you can define
 whatever keys you like using the standard WoW keybinds UI. You can use this mechanism to switch mains at any time,
-including in combat. You can even change the active actionbar page, and thus your main, in a macro using `/changeactionbar`.
+including in combat. You can even switch mains in a macro using the
+[http://www.wowwiki.com/MACRO_changeactionbar changeactionbar] slash command.
 
 == How It Works ==
 
@@ -33,28 +38,28 @@ ActionBarTargeting creates the following macros/buttons:
     * `FollowMain`: Clone follows your main.
     * `TargetToon{1-n}`: Targets characters 1-n in your team, irrespective of party position.
 The macro for each button is slightly different for each character in a team. For example, take a team of 3 shamans:
-Katator, Ketator and Kitator. Each shaman uses the Lightning Bolt macro shown above for their primary nuke. On shaman 1
-(Katator) `SetOffensiveTarget` looks like this:
+Toon1, Toon2 and Toon3. Each shaman uses the Lightning Bolt macro shown above for their primary nuke. On shaman 1
+`SetOffensiveTarget` looks like this:
 
 {{{
 /startattack
 /stopmacro [exists,harm,nodead]
-/assist [bar:2] Ketator; [bar:3] Kitator
+/assist [bar:2] Toon2; [bar:3] Toon3
 }}}
 
-With the current actionbar page set to 1, Katator is the main, so all this macro does is start her auto-attack. She he will
-cast her lightning bolt as usual, at whatever she has targeted.
+With the current actionbar page set to 1, Toon1 is the main, so all this macro does is start his auto-attack. He he will
+cast his lightning bolt as usual, at whatever he has targeted. (Note: `bar` is a short form for the `actionbar` conditional.)
 
-On shaman 2 though (Ketator), `SetOffensiveTarget` looks like this:
+On shaman 2 though, `SetOffensiveTarget` looks like this:
 
 {{{
 /startattack
 /stopmacro [exists,harm,nodead]
-/assist [bar:1] Katator; [bar:3] Kitator
+/assist [bar:1] Toon1; [bar:3] Toon3
 }}}
 
-Now Ketator will attack Katator's target, unless she already has a living, hostile target of her own (sticky
-targeting). To switch roles and make Ketator the main just hit the key to switch to actionbar page 2.
+Now Toon2 will attack Toon1's target, unless he already has a living, hostile target of his own (sticky
+targeting). To switch roles and make Toon2 the main just hit the key to switch to actionbar page 2.
 
 The macros for the other ActionBarTargeting buttons work along similar lines. To see the generated code for all
 buttons use the command `/abt print` in game.
