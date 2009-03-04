@@ -42,21 +42,19 @@ function ABT:OnTeamChanged(msgName, team, name)
     end
 end
 
--- Concatenates input arguments to create macro text
-function ABT:CreateMacro(...)
+-- Joins lines to create macro text
+function ABT:JoinLines(...)
     local text = {}
     for i, v in ipairs{...} do
         local t = type(v)
-        if t == "string" or t == "number" then
+        if t == "string" then
             text[i] = v
-        elseif type(v) == "function" then
-            text[i] = v()
         else
             error("Unexpected type for arg " .. i .. ": " .. type(v))
         end
     end
     
-    return tconcat(text)
+    return tconcat(text, "\n")
 end
 
 -- Returns the max actionbar page used by a given team
@@ -135,10 +133,10 @@ function ABT:CreateSetOffensiveTargetMacro(team, toonIndex)
     toonIndex = toonIndex or ABT:PlayerIndex(team)
     ValidateMacroParams(team, toonIndex)
     
-    return ABT:CreateMacro(
-        "/startattack\n",
-        "/stopmacro [exists,harm,nodead]\n",
-        "/assist " .. ABT:JoinBarConditions(team, toonIndex)
+    return ABT:JoinLines(
+        "/startattack",
+        "/stopmacro [exists,harm,nodead]",
+        "/assist " .. ABT:JoinBarConditions(team, toonIndex) .. "; [bar:6, target=focus]"
     )
 end
 
@@ -152,8 +150,9 @@ function ABT:CreateSetHealingTargetMacro(team, toonIndex)
         nobar = "nobar:" .. toonIndex .. ","
     end
     
-    return ABT:CreateMacro(
-        "/targetexact " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
+    return ABT:JoinLines(
+        "/targetexact " .. ABT:JoinBarConditions(team, toonIndex),
+        "/target [bar:6, target=focus]",
         "/target [" .. nobar .. "help,nodead] targettarget"
     )
 end
@@ -163,8 +162,9 @@ function ABT:CreateTargetMainMacro(team, toonIndex)
     toonIndex = toonIndex or ABT:PlayerIndex(team)
     ValidateMacroParams(team, toonIndex)
     
-    return ABT:CreateMacro(
-        "/targetexact " .. ABT:JoinBarConditions(team, toonIndex)
+    return ABT:JoinLines(
+        "/targetexact " .. ABT:JoinBarConditions(team, toonIndex),
+        "/target [bar:6, target=focus]"
     )
 end
 
@@ -173,9 +173,9 @@ function ABT:CreateTargetMainTargetMacro(team, toonIndex)
     toonIndex = toonIndex or ABT:PlayerIndex(team)
     ValidateMacroParams(team, toonIndex)
     
-    return ABT:CreateMacro(
-        "/stopmacro [bar:" .. toonIndex .. "]\n",
-        "/targetexact " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
+    return ABT:JoinLines(
+        "/stopmacro [bar:" .. toonIndex .. "]",
+        "/click TargetMain",
         "/target targettarget"
     )
 end
@@ -185,9 +185,9 @@ function ABT:CreateFollowMainMacro(team, toonIndex)
     toonIndex = toonIndex or ABT:PlayerIndex(team)
     ValidateMacroParams(team, toonIndex)
     
-    return ABT:CreateMacro(
-        "/stopmacro [bar:" .. toonIndex .. "]\n",
-        "/targetexact " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
+    return ABT:JoinLines(
+        "/stopmacro [bar:" .. toonIndex .. "]",
+        "/click TargetMain",
         "/follow"
     )
 end
