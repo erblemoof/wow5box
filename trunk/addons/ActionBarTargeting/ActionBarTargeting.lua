@@ -131,7 +131,7 @@ local function ValidateMacroParams(team, toonIndex)
 end
 
 -- Creates a macro to set the offensive target on followers
-function ABT:CreateOffensiveTargetMacro(team, toonIndex)
+function ABT:CreateSetOffensiveTargetMacro(team, toonIndex)
     toonIndex = toonIndex or ABT:PlayerIndex(team)
     ValidateMacroParams(team, toonIndex)
     
@@ -143,7 +143,7 @@ function ABT:CreateOffensiveTargetMacro(team, toonIndex)
 end
 
 -- Creates a macro to set the healing target on followers
-function ABT:CreateHealingTargetMacro(team, toonIndex)
+function ABT:CreateSetHealingTargetMacro(team, toonIndex)
     toonIndex = toonIndex or ABT:PlayerIndex(team)
     ValidateMacroParams(team, toonIndex)
     
@@ -181,7 +181,7 @@ function ABT:CreateTargetMainTargetMacro(team, toonIndex)
 end
 
 -- Creates a macro to follow the current main
-function ABT:CreateFollowMacro(team, toonIndex)
+function ABT:CreateFollowMainMacro(team, toonIndex)
     toonIndex = toonIndex or ABT:PlayerIndex(team)
     ValidateMacroParams(team, toonIndex)
     
@@ -190,6 +190,11 @@ function ABT:CreateFollowMacro(team, toonIndex)
         "/targetexact " .. ABT:JoinBarConditions(team, toonIndex) .. "\n",
         "/follow"
     )
+end
+
+-- Creates a macro to target the current toon
+function ABT:CreateTargetToonMacro(team, toonIndex)
+    return "/targetexact " .. team[toonIndex]
 end
 
 -- Creates a macro button
@@ -208,15 +213,15 @@ function ABT:CreateAllButtons(team, name)
         error("Player must be in team")
     end
     
-    ABT:CreateButton("SetOffensiveTarget", ABT:CreateOffensiveTargetMacro(team, toonIndex))
-    ABT:CreateButton("SetHealingTarget", ABT:CreateHealingTargetMacro(team, toonIndex))
+    ABT:CreateButton("SetOffensiveTarget", ABT:CreateSetOffensiveTargetMacro(team, toonIndex))
+    ABT:CreateButton("SetHealingTarget", ABT:CreateSetHealingTargetMacro(team, toonIndex))
     ABT:CreateButton("TargetMain", ABT:CreateTargetMainMacro(team, toonIndex))
     ABT:CreateButton("TargetMainTarget", ABT:CreateTargetMainTargetMacro(team, toonIndex))
-    ABT:CreateButton("FollowMain", ABT:CreateFollowMacro(team, toonIndex))
+    ABT:CreateButton("FollowMain", ABT:CreateFollowMainMacro(team, toonIndex))
     
     -- Macros to target each toon
     for i,v in ipairs(team) do
-        ABT:CreateButton("TargetToon" .. i, "/targetexact " .. v)
+        ABT:CreateButton("TargetToon" .. i, ABT:CreateTargetToonMacro(team, i))
     end
     
     name = name or "unknown"

@@ -11,16 +11,11 @@ Results should look something like this:
 test> lua .\ActionBarTargetingTests.lua
 >>>>>>>>> AbtTests
 >>> AbtTests:test_BarPairs
->>> AbtTests:test_CreateFollowMacro
->>> AbtTests:test_CreateHealingTargetMacro
 >>> AbtTests:test_CreateMacro
->>> AbtTests:test_CreateOffensiveTargetMacro
->>> AbtTests:test_CreateTargetMainMacro
->>> AbtTests:test_CreateTargetMainTargetMacro
 >>> AbtTests:test_FirstIndexOf
 >>> AbtTests:test_JoinBarConditions
 >>> AbtTests:test_MaxBar
 >>> AbtTests:test_PlayerIndex
 
 =========================================================
-Success : 100% - 11 / 11
+Success : 100% - 6 / 6
