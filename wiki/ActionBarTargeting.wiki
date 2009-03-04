@@ -105,4 +105,46 @@ teams with MultiboxRoster, and that's like 30 sec with a text editor.
     
 That's it!
 
+== Macro Text ==
+
+Here are all the macros that get generated for Toon1 / actionbar page 1:
+
+*SetOffensiveTarget*
+{{{
+/startattack
+/stopmacro [exists,harm,nodead]
+/assist [bar:2] Toon2; [bar:3] Toon3; [bar:6, target=focus]
+}}}
+
+*SetHealingTarget*
+{{{
+/click FollowersTargetMain
+/target [nobar:1,help,nodead] targettarget
+}}}
+
+*FollowersTargetMain*
+{{{
+/targetexact [bar:2] Toon2; [bar:3] Toon3
+/target [bar:6, target=focus]
+}}}
+
+*TargetMainTarget*
+{{{
+/stopmacro [bar:1]
+/click FollowersTargetMain
+/target targettarget
+}}}
+
+*FollowMain*
+{{{
+/stopmacro [bar:1]
+/click FollowersTargetMain
+/follow
+}}}
+
+*TargetToon*
+{{{
+/targetexact Toon1
+}}}
+
 [https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=FJVUV4S9GXX9U&lc=US&item_name=wow5box&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif]
