@@ -5,11 +5,17 @@ Downloads: http://code.google.com/p/wow5box/downloads/list
 
 Discussion Thread: [http://www.dual-boxing.com/forums/index.php?page=Thread&postID=182715#post182715 dual-boxing.com]
 
+== Updates ==
+
+    * 3/4/09 (v0.3): Added focus as main on actionbar page 6 as suggested by Varmon
+
 == Introduction ==
 
 ActionBarTargeting is a WoW addon that automatically creates targeting and follow macros for a multibox team of
 characters. The targeting system is based on the [http://www.wowwiki.com/Making_a_macro#Complete_list actionbar]
-conditional (active actionbar page), so focus is kept free for defining crowd control targets.
+conditional (active actionbar page), so focus is kept free for defining crowd control targets. If you want it for
+a particular encounter (e.g., vehicle quests), focus targeting is also supported and can be switched on/off even
+in combat.
 
 Targeting macros are bound to invisible buttons that can be `/click`'ed to do the appropriate actions. For example,
 the following macro clicks the ActionBarTargeting `SetOffensiveTarget` button to make one of your shaman followers
@@ -45,18 +51,19 @@ Toon1, Toon2 and Toon3. Each shaman uses the Lightning Bolt macro shown above fo
 {{{
 /startattack
 /stopmacro [exists,harm,nodead]
-/assist [bar:2] Toon2; [bar:3] Toon3
+/assist [bar:2] Toon2; [bar:3] Toon3; [bar:6, target=focus]
 }}}
 
 With the current actionbar page set to 1, Toon1 is the main, so all this macro does is start his auto-attack. He he will
-cast his lightning bolt as usual, at whatever he has targeted. (Note: `bar` is a short form for the `actionbar` conditional.)
+cast his lightning bolt as usual, at whatever he has targeted. (Note: `bar` is a short form for the `actionbar`
+conditional.) Actionbar page 6 is a special mode that always switches to focus targeting.
 
 On shaman 2 though, `SetOffensiveTarget` looks like this:
 
 {{{
 /startattack
 /stopmacro [exists,harm,nodead]
-/assist [bar:1] Toon1; [bar:3] Toon3
+/assist [bar:1] Toon1; [bar:3] Toon3; [bar:6, target=focus]
 }}}
 
 Now Toon2 will attack Toon1's target, unless he already has a living, hostile target of his own (sticky
@@ -83,6 +90,7 @@ teams with MultiboxRoster, and that's like 30 sec with a text editor.
 == Limitations ==
 
     * Won't work well if you use action bar pages for another purpose, for instance if you use separate melee and ranged attack bars on a hunter.
+    * Won't work well if you use the default actionbars, since there is no way to turn paging off.
     * Macros are not easily customizable. If you're not happy with mine your only recourse is to edit the definitions in `ActionBarTargeting.lua`. I know this sucks -- I'm working on something better.
     * Max of 6 possible mains since that is the max number of possible action bar pages.
 
