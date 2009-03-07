@@ -30,6 +30,7 @@ function Undercut:AUCTION_HOUSE_CLOSED(...)
     self:Unhook(_G, "ContainerFrameItemButton_OnModifiedClick")
 end
 
+-- ISSUE: Not sure why I need the _ below, AceHook bug?
 function Undercut:ContainerFrameItemButton_OnModifiedClick(_, button)
     if (button ~= "LeftButton") or (not IsAltKeyDown()) then
         return
