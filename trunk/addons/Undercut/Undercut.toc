@@ -1,0 +1,15 @@
+## Interface: 30000
+## Title: Undercut
+## Notes: Alt-click on bag items while at the auction house to search for competition
+## Author: Chorizotarian
+## Version: 0.2
+## X-Category: Auction
+## SavedVariables:
+## OptionalDeps: Ace3
+## X-AceForum: http://www.wowace.com/forums/index.php?topic=13391.0
+## X-RelSite-Curse: 12594
+## X-RelSite-WoWI: 8916
+
+embeds.xml
+Undercut.lua
+
