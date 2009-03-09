@@ -54,7 +54,7 @@ function Undercut:ContainerFrameItemButton_OnModifiedClick(_, button)
     else
 	    BrowseName:SetText("")
 	    BrowseMinLevel:SetText(math.max(itemMinLevel - 3, 1))
-	    BrowseMaxLevel:SetText(math.min(itemMinLevel + 3, 70))
+	    BrowseMaxLevel:SetText(math.min(itemMinLevel + 3, 80))
 	end
 
 	IsUsableCheckButton:SetChecked(false)
