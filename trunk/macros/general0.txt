@@ -1,0 +1,7 @@
+MACRO 23 "Main1" Spell_Nature_BloodLust
+/p Making Toon1 the new main...
+/changeactionbar 1
+END
+MACRO 22 "Reload" Ability_Creature_Cursed_04
+/console ReloadUI
+END
