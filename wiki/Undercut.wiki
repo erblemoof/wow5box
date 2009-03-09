@@ -5,6 +5,7 @@ Downloads: http://code.google.com/p/wow5box/downloads/list
 == Updates ==
 
     * 3/7/09 (0.2.0): Fixed for WoTLK
+    * 3/8/09 (0.2.1): Upped max level to 80
 
 == Introduction ==
 
