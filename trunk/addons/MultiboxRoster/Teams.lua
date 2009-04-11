@@ -1,4 +1,4 @@
-local MBR = LibStub("AceAddon-3.0"):GetAddon("MultiboxRoster")
+﻿local MBR = LibStub("AceAddon-3.0"):GetAddon("MultiboxRoster")
 
 MBR.teams = {
 
@@ -6,7 +6,7 @@ MBR.teams = {
 -- Full teams
 -----------------------------------------------------------------------
 
-    druids = { "Crockpot", "Pawfoo", "Pewmew", "Pieforu", "Pumu" },
+    druids = { "Mewpew", "Pawfoo", "Pewmew", "Pieforu", "Pumu" },
     mages = { "Axo", "Xalo", "Xiloh", "Xulo", "Skeletoor" },
     shamans = { "Iaggo", "Katator", "Ketator", "Kitator", "Kutator" },
 
@@ -14,12 +14,14 @@ MBR.teams = {
 -- Partial teams
 -----------------------------------------------------------------------
 
-    druidsonly = { "Pawfoo", "Pewmew", "Pieforu", "Pumu" },
+    druids2 = { "Mewpew", "Pawfoo" },
 
 -----------------------------------------------------------------------
 -- Addon test team(s)
 -----------------------------------------------------------------------
 
     addontest1 = { "Skeletoor", "Xalo" },
-    
+    addontest2 = { "Õõ", "Óò" },
+    addontest3 = { "Beada", "Biza" },
+   
 }
