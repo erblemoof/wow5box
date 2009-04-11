@@ -43,7 +43,8 @@ MbrTests = {
         team1 = { "Crockpot", "Pawfoo", "Pewmew", "Pieforu", "Pumu" },
         team2 = { "Axo", "Xalo" },
         team3 = { "Axo", "Xalo", "Xiloh" },
-        team4 = { "Axo" }
+        team4 = { "Axo" },
+        dks = { "’ı", "”Ú" }
     }
 }
 
@@ -72,6 +73,9 @@ function MbrTests:test_UnitName()
     assertEquals(UnitName("party1"), "A")
     assertEquals(UnitName("party3"), "C")
     assertNil(UnitName("party4"))
+    
+    party = MBR.teams["dks"]
+    assertEquals(UnitName("party1"), "’ı")
 end
 
 function MbrTests:test_Teams()
@@ -80,6 +84,7 @@ function MbrTests:test_Teams()
     assertEquals(MBR.teams["team1"][6], nil)
     assertEquals(MBR.teams["team2"][1], "Axo")
     assertEquals(MBR.teams["bogus"], nil)
+    assertEquals(MBR.teams["dks"][1], "’ı")
 end
 
 function MbrTests:test_GetPartyMembers()
@@ -119,6 +124,8 @@ function MbrTests:test_DetectTeam()
 
     AssertDetectTeam({ "Axo", "Xalo", "Xiloh" }, "team3")
     AssertDetectTeam({ "Xalo", "Axo", "Xiloh" }, "team3")
+    
+    AssertDetectTeam({ "’ı", "”Ú" }, "dks")
 end
 
 -----------------------------------------------------------------------
